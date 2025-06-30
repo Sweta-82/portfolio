@@ -1,0 +1,409 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/thin/style.css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
+        integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+
+</head>
+
+<body class="font-['Gilroy'] text-white">
+
+    <style>
+        @keyframes fadeUp {
+
+            0%,
+            19.9% {
+                opacity: 1;
+            }
+
+            20%,
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .img1 {
+            animation: fadeUp 20s ease-in-out 0s infinite;
+            opacity: 0;
+        }
+
+        .img2 {
+            animation: fadeUp 20s ease-in-out 4s infinite;
+            opacity: 0;
+        }
+
+        .img3 {
+            animation: fadeUp 20s ease-in-out 8s infinite;
+            opacity: 0;
+        }
+
+        .img4 {
+            animation: fadeUp 20s ease-in-out 12s infinite;
+            opacity: 0;
+        }
+
+        .img5 {
+            animation: fadeUp 20s ease-in-out 16s infinite;
+            opacity: 0;
+        }
+    </style>
+    <div class="green-div bg-[#14cf93] bottom-0 w-full absolute "></div>
+    <div class="white-div pointer-events-none bg-white bottom-0 w-full absolute bg-red-500" data-scroll></div>
+    <div class="" data-scroll-container>
+        <!-- fixed z-10 -->
+        <div class="black bg-black h-screen w-full fixed z-[999] ">
+            <div class=" text-center uppercase text-xs py-5 relative">
+                <h5 class="reveal text-white ">Design portfolio</h5>
+                <h5 class="reveal text-white ">&copy; 2025</h5>
+            </div>
+            <div class="reveal h-screen pt-50 text-center text-[8vh]"><span class="inline-block">Sweta</span> <span
+                    class="text-[#14cf93] inline-block">Yadav</span> <span class="inline-block">is a</span></div>
+        </div>
+        <!-- <div class="green-div pointer-events-none bg-[#14cf93] bottom-0 w-full absolute" data-scroll></div>
+        <div class="white-div pointer-events-none bg-white bottom-0 w-full absolute bg-red-500" data-scroll></div> -->
+
+        <div class=" bg-white text-black">
+            <nav class="fixed top-0 left-0 w-full z-50 py-4 flex justify-around font-bold text-sm text-black ">
+                <a href="#" class="hover:text-[#14cf93] border-b-1 border-black hover:border-[#14cf93]">Sweta</a>
+                <a href="#" class="hover:text-[#14cf93] border-b-1 border-black hover:border-[#14cf93]">PlayBook</a>
+                <a href="#" class="hover:text-[#14cf93] border-b-1 border-black hover:border-[#14cf93]">Social</a>
+                <a href="#" class="hover:text-[#14cf93] border-b-1 border-black hover:border-[#14cf93]">Contact</a>
+            </nav>
+
+            <div class="flex gap-40 px-15 pt-10">
+                <h1 class="text-[20vh] text-[#383838]">Creative</h1>
+                <span class="section-lorem py-10 text-[#a2a2a2] font-bold">Lorem ipsum <br>dolor sit amet.</span>
+                <span class="section-lorem py-20 text-[#a2a2a2] font-bold">Lorem ipsum, dolor <br>sit amet
+                    consectetur<br> adipisicing elit.</span>
+            </div>
+            <div class=" text-end flex gap-6 px-15">
+                <span class="animatedText text-[28vh] text-[#14cf93]">Visual</span>
+                <h1 class="text-[28vh] text-[#383838] ">Designer</h1>
+            </div>
+            <!-- below hero section -->
+            <div class=" hero-section-body content-div flex px-15 items-center" data-scroll>
+                <!-- tracking-tighter  -->
+                <div class="text-div mr-40 " data-scroll data-scroll-speed="2">
+                    <span class="text-[25px] text-bold leading-none tracking-tighter uppercase bg-red-600">
+                        <span class="text-div1 block">I am Sweta, I<br></span>
+                        <span class="text-div1 block">create <span class="text-[#14cf93]">unconventional</span>
+                            yet<br></span> <span class="text-div1 block">functional &
+                            visually<br></span> <span class="text-div1 block">pleasing
+                            interfaces<br></span> <span class="text-div1 block">for the
+                            mobile and web.</span>
+                    </span>
+                </div>
+                <div class="main-div flex" data-scroll data-scroll-speed="-1" data-scroll-direction="horizontal">
+                    <div class="main-div1 h-[90vh] bg-red-500 w-[70vh] rounded-4xl relative -rotate-10 overflow-hidden">
+                        <img src="https://i.pinimg.com/736x/65/b3/ed/65b3ed2624b17a40138c07a7fa194dd7.jpg"
+                            class="h-full w-full object-cover filter grayscale hover:filter-none  duration-2000" alt="">
+                    </div>
+                    <div
+                        class="main-div2 h-[90vh] bg-black w-[70vh] absolute mt-20 ml-20 rounded-4xl -rotate-5 overflow-hidden">
+                        <!-- filter grayscale--- used for black and white -->
+                        <img src="https://i.pinimg.com/736x/6f/3b/54/6f3b542a15f51f3cd1fc25e1578fefa8.jpg"
+                            class="h-full w-full object-cover filter grayscale hover:filter-none  duration-2000" alt="">
+                    </div>
+                    <div
+                        class="main-div3 h-[90vh] bg-green-900 w-[70vh] mt-40 ml-40 absolute rounded-4xl -rotate-2 overflow-hidden">
+                        <img src="https://i.pinimg.com/736x/9c/04/ea/9c04ea1de6d28cd3909ce4a9062ff74f.jpg"
+                            class="h-full w-full object-cover filter grayscale hover:filter-none  duration-2000" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="sub-hero bg-[#f2f2f2] w-full px-15" data-scroll>
+                <div class="text-[15vh] font-extralight text-gray-300 ">
+                    <i class="ph-thin ph-arrow-down-right"></i>
+                </div>
+                <div class="pl-30 leading-none tracking-tighter uppercase" data-scroll data-scroll-speed="-1">
+                    <p class="text-gray-600 text-xl text-[#A2A2A2] pb-10">Things I Can Help you <br>with.</p>
+                    <p class="text-3xl uppercase text-[#383838]">Web & mobile / UI&Ux / <br>Branding / front-end
+                        <br>Development
+                    </p>
+                    <hr class="mt-20 mt-20 text-gray-400 border-t-2 " data-scroll data-scroll-speed="2">
+                </div>
+                <div class="mt-[16vh] pl-[120px] text-[#383838] flex justify-between text-[18vh]" data-scroll>
+                    <div>
+                        <p class="">Feat Wo<span class="text-[#14cf93]">r</span>k <span class="text-xl">(05)</span></p>
+                    </div>
+                    <div class="">
+                        <i class="ph-thin ph-arrow-down-left"></i>
+                    </div>
+                </div>
+                <!-- div section -->
+                <div class="flex gap-30 items-end mt-[10vh] ">
+                    <div class="main h-[120vh] w-[50vw] rounded-[3em]   flex items-end px-5 pb-5 gap-4 overflow-hidden cursor-none"
+                        data-scroll data-scroll-speed="-1">
+
+
+                        <img src="https://i.pinimg.com/736x/b3/e5/68/b3e5686a3a8812b55f4426d46ac21c35.jpg"
+                            class=" absolute inset-0 h-full w-full object-cover object-[80%_20%] hover:grayscale duration-1000"
+                            alt="">
+
+
+                        <button class="rounded-[12vh] bg-blue-400 px-[6em] py-[1em] z-10">
+                            Aeizi
+                        </button>
+
+                        <span
+                            class="bg-white flex items-center justify-center rounded-full w-14 h-14 shadow-lg cursor-pointer z-10">
+                            <i class="ph-thin ph-arrow-up-right text-gray-400 text-xl"></i>
+                        </span>
+                    </div>
+                    <div class="main bg-red-500 h-[70vh] w-[25vw] rounded-[3em]  flex items-end px-10  pb-5 gap-4 overflow-hidden cursor-none"
+                        data-scroll data-scroll-speed="1">
+
+
+                        <img src="https://i.pinimg.com/736x/72/a6/49/72a6491c820f1a7232d428b8d5fe8b07.jpg" alt=""
+                            class="absolute inset-0 h-full w-full object-cover object-[80%_20%] hover:grayscale duration-1000">
+                        <button class="rounded-[12vh] bg-blue-400 px-[3em] py-[1em] z-10">
+                            Aeizi
+                        </button>
+
+                        <span
+                            class="bg-white flex items-center justify-center rounded-full w-14 h-14 shadow-lg cursor-pointer z-10">
+                            <i class="ph-thin ph-arrow-up-right text-gray-400 text-xl"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="main bg-blue-800 mt-20 h-[100vh] w-[50vw] flex mx-auto rounded-[3em] relative flex items-end px-10  pb-5 gap-2 overflow-hidden cursor-none"
+                    data-scroll>
+
+
+                    <img src="https://i.pinimg.com/736x/53/24/5b/53245b708ab5ab7e2f5db477fefa7fe0.jpg" alt=""
+                        class="absolute inset-0 h-full w-full object-cover object-[80%_20%] hover:grayscale duration-1000">
+                    <button class="rounded-[12vh] bg-blue-400 px-[6em] py-[1em] z-10">
+                        Aeizi
+                    </button>
+
+                    <span
+                        class="bg-white flex items-center justify-center  rounded-full shadow-lg cursor-pointer w-14 h-14 z-10">
+                        <i class="ph-thin ph-arrow-up-right text-gray-400 text-xl"></i>
+                    </span>
+                </div>
+                <div class="w-full flex justify-end " data-scroll>
+                    <div class="main mt-20 bg-green-400 h-[100vh] w-[50vw] rounded-[3em] relative flex items-end px-10  pb-5 gap-2 overflow-hidden cursor-none"
+                        data-scroll data-scroll-speed="1">
+
+
+                        <img src="https://i.pinimg.com/736x/3b/1d/b1/3b1db17efaca94b8d558e2574b73c210.jpg" alt=""
+                            class="absolute inset-0 h-full w-full object-cover object-[80%_20%] hover:grayscale duration-1000">
+                        <button class="rounded-[12vh] bg-blue-400 px-[6em] py-[1em] z-10">
+                            Aeizi
+                        </button>
+
+                        <span
+                            class="bg-white flex items-center justify-center rounded-full w-14 h-14 shadow-lg cursor-pointer z-10">
+                            <i class="ph-thin ph-arrow-up-right text-gray-400 text-xl "></i>
+                        </span>
+                    </div>
+                </div>
+                <!-- achive -->
+                <div class="main bg-red-500 h-[70vh] w-[25vw] rounded-[3em]   relative flex items-end px-10  pb-5 gap-2 overflow-hidden cursor-none"
+                    data-scroll data-scroll-speed="1">
+
+                    <img src="https://i.pinimg.com/736x/3f/ce/55/3fce557bd08eea21f5385604d00d8885.jpg" alt=""
+                        class="absolute inset-0 h-full w-full object-cover object-[80%_20%] hover:grayscale duration-1000">
+                    <button class="rounded-[12vh] bg-blue-400 px-[3em] py-[1em] z-10">
+                        Aeizi
+                    </button>
+
+                    <span
+                        class="bg-white flex items-center justify-center  rounded-full w-14 h-14  shadow-lg cursor-pointer z-10">
+                        <i class="ph-thin ph-arrow-up-right text-gray-400 text-xl "></i>
+                    </span>
+                </div>
+
+                <div class="w-fit ml-auto flex flex-col px-40 mt-20 uppercase text-xl text-[#383838]" data-scroll
+                    data-scroll-speed="1">
+                    <span class="text-sm text-[#A2A2A2]">ARCHIVE</span>
+                    <a href="" class="group hover:text-[#14cf93] duration-500">
+                        <span>North of Zero</span>
+                        <i
+                            class="ph-thin ph-arrow-up-right opacity-0 group-hover:opacity-100 duration-500 text-[#14cf93]"></i>
+                    </a>
+                    <!-- <i class="ph ph-arrow-up-right"></i> -->
+                    <a href="" class="group hover:text-[#14cf93] duration-500">
+                        <span>Pulse</span>
+                        <i
+                            class="ph-thin ph-arrow-up-right opacity-0 group-hover:opacity-100 duration-500 text-[#14cf93]"></i>
+                    </a>
+                    <a href="" class="group hover:text-[#14cf93] duration-500">
+                        <span>Photo Folio</span>
+                        <i
+                            class="ph-thin ph-arrow-up-right opacity-0 group-hover:opacity-100 duration-500 text-[#14cf93]"></i>
+                    </a>
+                    <a href="" class="group hover:text-[#14cf93] duration-500">
+                        <span>Springflats Stay</span>
+                        <i
+                            class="ph-thin ph-arrow-up-right opacity-0 group-hover:opacity-100 duration-500 text-[#14cf93]"></i>
+                    </a>
+                    <a href="" class="group hover:text-[#14cf93] duration-500">
+                        <span>Chuu</span>
+                        <i
+                            class="ph-thin ph-arrow-up-right opacity-0 group-hover:opacity-100 duration-500 text-[#14cf93]"></i>
+                    </a>
+                    <a href="" class="group hover:text-[#14cf93] duration-500">
+                        <span>2020 Portfolio</span>
+                        <i
+                            class="ph-thin ph-arrow-up-right opacity-0 group-hover:opacity-100 duration-500 text-[#14cf93]"></i>
+                    </a>
+                </div>
+                <div class="pb-40">
+                    <div
+                        class="mt-30 rounded-4xl text-center border-[#A2A2A2] border-1 hover:bg-white duration-500  cursor-pointer">
+                        <button class="py-4">
+                            See Playbook
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="px-15 text-[#383838]" data-scroll>
+            <div class="" data-scroll>
+                <span class="text-[18vh] pr-[278px]">Hono<span class="text-[#14cf93]">r</span>s</span>
+                <span class="text-[#383838]">All of My past achievements,
+                    awards and recognition.</span>
+            </div>
+            <i class="ph-thin ph-arrow-down-right text-[15vh] text-[#383838]"></i>
+            <div class="flex justify-between" data-scroll data-scroll-speed="1">
+                <!-- img -->
+                <div class="mt-40">
+                    <p class="text-[#a2a2a2] uppercase mb-10">Feature</p>
+                    <p class="text-[#424242] text-2xl pb-3">
+                        Interview with wix <br> Editor X
+                    </p>
+                    <div class="w-[25vw] h-[30vh] bg-black rounded-4xl overflow-hidden relative">
+
+                        <img src="https://i.pinimg.com/736x/dd/fc/ac/ddfcac65a67bc5ed50019958e99acfdd.jpg" alt=""
+                            class="absolute inset-0 h-full w-full object-cover object-[80%_20%]">
+                    </div>
+                    <p class="text-[#a2a2a2] pt-2 mb-20">My journey of becoming a visual <br> designer and my views on
+                        websites as a<br> medium of expression.</p>
+                </div>
+                <!-- ul -->
+                <div class="py-2 text-[#383838] w-[50vw]" data-scroll data-scroll-speed="3">
+                    <ul>
+                        <div class=" flex items-center justify-between p-5">
+                            <span class="text-sm">for SPLAY</span>
+                            <li class="text-[8vh]">Awwwards SOTD</li>
+                            <i class="ph-thin ph-arrow-right bg-[#383838] text-white text-4xl rounded-full"></i>
+                        </div>
+                        <hr>
+                        <div class=" flex items-center p-5 justify-between">
+                            <span class="text-sm">for SPLAY</span>
+                            <li class="text-[8vh]">Wix.com</li>
+                            <i class="ph-thin ph-arrow-right bg-[#383838] text-white text-4xl rounded-full"></i>
+                        </div>
+                        <hr>
+                        <div class=" flex items-center p-5 justify-between">
+                            <span class="text-sm">for SPLAY</span>
+                            <li class="text-[8vh] ">Orpetron SOTD</li>
+                            <hr>
+                            <i class="ph-thin ph-arrow-right bg-[#383838] text-white text-4xl rounded-full"></i>
+                        </div>
+                        <hr>
+                        <div class=" flex items-center p-5 justify-between">
+                            <span class="text-sm">for SPLAY</span>
+                            <li class="text-[8vh] ">Awwwards</li>
+                            <i class="ph-thin ph-arrow-right bg-[#383838] text-white text-4xl rounded-full"></i>
+                        </div>
+                        <hr>
+                        <div class=" flex items-center p-5 justify-between">
+                            <span class="text-sm">for SPLAY</span>
+                            <li class="text-[8vh] ">CSS Awards</li>
+                            <i class="ph-thin ph-arrow-right bg-[#383838] text-white text-4xl rounded-full"></i>
+                        </div>
+                        <hr>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <!-- footer -->
+        <div class="bg-[#253b39] w-full px-15" data-scroll>
+            <!-- <div class="bg-[#738180] w-full h-screen rounded-full"></div> -->
+            <div class="text-center pt-[6em]" data-scroll data-scroll-speed="1">
+                <p class="text-[5em] leading-none uppercase tracking-tighter">Let's Talk<br>About the Next<br>thing</p>
+            </div>
+            <div class="w-full h-[550px] bg-[#a2a2a2] rounded-t-full z-1" data-scroll data-scroll-speed="2">
+                <div class="flex justify-between mt-20">
+                    <button
+                        class="rounded-[3em] px-[12em] py-[2em] border-white border-1 font-bold hover:bg-white hover:text-black duration-1000">Write
+                        Message</button>
+                    <button
+                        class="rounded-[3em] px-[12em] py-[2em] border-white border-1 font-bold hover:bg-white hover:text-black duration-1000">Discuess
+                        Project</button>
+                </div>
+
+                <div class="flex justify-between mt-20 p-[4em] tracking-widest text-bold text-2xl" data-scroll
+                    data-scroll-speed="2">
+                    <a href=""
+                        class="border-t-1 border-white py-2 hover:bg-white hover:text-black duration-1000 px-4 ">Instagram</a>
+                    <a href=""
+                        class="border-t-1 border-white py-2 hover:bg-white hover:text-black duration-1000 px-4 ">LinkedIn</a>
+                    <a href=""
+                        class="border-t-1 border-white py-2 hover:bg-white hover:text-black duration-1000 px-4 ">Twitter</a>
+                    <a href=""
+                        class="border-t-1 border-white py-2 hover:bg-white hover:text-black duration-1000 px-4 ">Dribble</a>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- images hover -->
+
+
+        <!-- <div class="h-screen bg-red-500 "> -->
+
+        <div class="cursor w-[250px] h-auto fixed z-999 pointer-events-none">
+            <!-- Navbar or overlay -->
+            <div class="flex gap-2 mb-3">
+                <div class=" w-6 h-7  rounded-full border-1 border-gray-500"></div>
+                <button class="bg-white py-1 px-3 text-black uppercase rounded-4xl ">behance</button>
+            </div>
+            <div class="relative z-10 bg-white/40 px-4 py-2 rounded-t-[8px] ">
+                <nav class="flex gap-2">
+                    <span class="w-2 h-2 rounded-full bg-white/40 inline-block"></span>
+                    <span class="w-2 h-2 rounded-full bg-white/40 inline-block"></span>
+                    <span class="w-2 h-2 rounded-full bg-white/40 inline-block"></span>
+                </nav>
+            </div>
+            <div class="w-[250px] h-auto bg-blue-600 relative">
+                <!-- Background images -->
+                <img src="https://i.pinimg.com/736x/44/b7/2f/44b72fc40b63fcd8f2f8591195e7e6a2.jpg" alt=""
+                    class="img1 absolute inset-0 object-cover z-0">
+                <img src="https://i.pinimg.com/736x/ec/47/f9/ec47f928f6616a24bc19f3db1216c6cd.jpg" alt=""
+                    class="img2 absolute inset-0 object-cover z-0">
+                <img src="https://i.pinimg.com/736x/cb/d7/8d/cbd78d295e767641b7adc9021dc4bb10.jpg" alt=""
+                    class="img3 absolute inset-0 object-cover z-0">
+                <img src="https://i.pinimg.com/736x/39/b3/5d/39b35dca24bd0d641e99b47ad6e4acec.jpg" alt=""
+                    class="img4 absolute inset-0 object-cover z-0">
+                <img src="https://i.pinimg.com/736x/8f/0c/e2/8f0ce2b52ad4e5532efed66cebcd4bc4.jpg" alt=""
+                    class="img5 absolute inset-0 object-cover z-0">
+            </div>
+        </div>
+    </div>
+
+        <!-- </div> -->
+        <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+        <script src="portfolio.js"></script>
+</body>
+
+</html>
