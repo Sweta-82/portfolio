@@ -195,7 +195,6 @@ document.addEventListener("mousemove",function(e){
 
 
 
-// https://github.com/Sweta-82/portfolio.git
 
 
   
