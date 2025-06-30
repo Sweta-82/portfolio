@@ -19,7 +19,7 @@ This is a **practice portfolio website** created to explore advanced frontend de
 - **Remix Icon** & **Phosphor Icons**
 
 ## 📂 Folder Structure
-├── index.html
+├── Portfolio.html
 ├── portfolio.js
 ├── README.md
 
