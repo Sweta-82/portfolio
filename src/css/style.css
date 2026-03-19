@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+:root {
+    --color-bg: #0B0B0C;
+    --color-primary: #FF3B00;
+    --color-text-main: #F5F5F5;
+    --color-text-secondary: #9CA3AF;
+    --color-text-muted: #6B7280;
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-secondary {
+  color: var(--color-text-secondary);
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+.bg-main {
+  background-color: var(--color-bg);
+}
