@@ -6,10 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff&display=swap" rel="stylesheet">
 </head>
 
-<body>
-    <h1 class="bg-primary">hello</h1>
-</body>
+<body class="h-full w-screen bg-main">
 
+    <!-- Three-->
+     <canvas class="webgl"></canvas>
+    <!-- Horizontal Ruler (Top) -->
+    <div class="ruler ruler--horizontal" id="rulerH">
+        <div class="ruler-track" id="rulerTrackH"></div>
+    </div>
+
+    <!-- Vertical Ruler (Left) -->
+    <div class="ruler ruler--vertical" id="rulerV">
+        <div class="ruler-track" id="rulerTrackV"></div>
+    </div>
+
+    <div class="absolute top-10 left-1/2 -translate-x-1/2 text-sm text-secondary">
+        Featured Works, Archive, About
+    </div>
+
+    <div class="absolute left-0 bottom-0 text-primary text-[50vh]">
+        <p class=" font-bold pl-5">DEV</p>
+    </div>
+        <div class="absolute left-10 top-1/3 -translate-y-1/2 text-muted text-sm leading-tight font-dynapuff">
+            <p>Sweta Kumari</p>
+            <p>Creative Frontend Developer</p>
+        </div>
+        <div class="absolute left-[22%] top-1/3 -translate-y-1/2 text-muted text-sm leadinwg-tight font-dynapuff">
+            <p>Issue N°001 / 2026</p>
+            <p>Ref. SW-PORTFOLIO-V1</p>
+        </div>
+    <script type="module" src="./src/js/cube.js"></script>
+    <script src="./src/js/ruler.js"></script>
+</body>
 </html>
