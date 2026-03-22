@@ -63,7 +63,7 @@ const tilePlane = new THREE.PlaneGeometry(tileSize, tileSize);
 faces.forEach((face) => {
     for (let row = 0; row < gridSize; row++) {
         for (let col = 0; col < gridSize; col++) {
-            const mat = new THREE.MeshBasicMaterial({ map: texture });
+            const mat = new THREE.MeshBasicMaterial({ map: texture, transparent: true, opacity: 0.7 });
             const tile = new THREE.Mesh(tilePlane, mat);
 
             // position in local face space (centered)
@@ -92,7 +92,7 @@ faces.forEach((face) => {
 });
 
 scene.add(cube);
-
+cube.position.set(0.5,-0.2,0.5)
 
 const size = {
     width: window.innerWidth,
@@ -106,7 +106,8 @@ scene.add(camera);
 const controls = new OrbitControls(camera, canvas);
 controls.enableDamping = true;
 const renderer = new THREE.WebGLRenderer({
-    canvas
+    canvas,
+    alpha: true
 })
 
 renderer.setSize(size.width, size.height);
@@ -115,10 +116,12 @@ renderer.setPixelRatio(window.devicePixelRatio); //20:16
 const clock = new THREE.Clock();
 const tick = () => {
     const eTime = clock.getElapsedTime();
-    cube.rotation.x = eTime *1;
-    cube.rotation.y = -eTime*1;
-    cube.rotation.z = eTime *0.3;
-    particles.rotation.x = eTime *1;
+    cube.rotation.x = eTime * 0.1;
+    cube.rotation.y = eTime * 0.8;
+    cube.rotation.z = -eTime * 0.3;
+    // particles zoom in/out 
+    const zoom = 1 + Math.sin(eTime * 0.005) * 0.2;
+    // particles.scale.set(zoom, zoom, zoom);
     renderer.render(scene, camera);
     controls.update();
     window.requestAnimationFrame(tick)

@@ -133,3 +133,39 @@
     padding-left: 3px;
     letter-spacing: 0.02em;
 }
+
+/* ── Skills Scroller (Right) ── */
+.skills-scroller {
+    @apply fixed right-10 top-0 w-48 h-full z-10 overflow-hidden pointer-events-auto flex flex-col;
+    mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+}
+
+.skills-track {
+    @apply flex flex-col gap-6 py-8;
+    animation: marquee-vertical 60s linear infinite;
+    will-change: transform;
+}
+
+.skills-track:hover {
+    animation-play-state: paused;
+}
+
+/* Individual skill items will now use Tailwind classes directly in JS */
+
+@keyframes marquee-vertical {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-50%);
+    }
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+    .skills-scroller {
+        @apply right-4 w-36;
+    }
+}

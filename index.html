@@ -14,7 +14,7 @@
 <body class="h-full w-screen bg-main">
 
     <!-- Three-->
-     <canvas class="webgl"></canvas>
+    <canvas class="webgl" style="position: fixed; top: 0; left: 0; z-index: 2;"></canvas>
     <!-- Horizontal Ruler (Top) -->
     <div class="ruler ruler--horizontal" id="rulerH">
         <div class="ruler-track" id="rulerTrackH"></div>
@@ -24,23 +24,36 @@
     <div class="ruler ruler--vertical" id="rulerV">
         <div class="ruler-track" id="rulerTrackV"></div>
     </div>
-
-    <div class="absolute top-10 left-1/2 -translate-x-1/2 text-sm text-secondary">
-        Featured Works, Archive, About
+    <div
+        class="absolute top-10 left-1/2 -translate-x-1/2 text-sm font-mono text-secondary flex gap-6 z-[100] pointer-events-auto">
+        <a href="#" class="text-primary hover:text-white transition-all duration-300">Enter</a>
+        <a href="./about.html" class="text-primary hover:text-white transition-all duration-300">About</a>
+        <a href="#" class="text-primary hover:text-white transition-all duration-300">Work</a>
+        <a href="#" class="text-primary hover:text-white transition-all duration-300">Skills</a>
+        <a href="#" class="text-primary hover:text-white transition-all duration-300">Contact</a>
     </div>
 
-    <div class="absolute left-0 bottom-0 text-primary text-[50vh]">
+    <div class="absolute left-0 bottom-0 text-primary text-[50vh]" style="z-index: 1;">
         <p class=" font-bold pl-5">DEV</p>
     </div>
-        <div class="absolute left-10 top-1/3 -translate-y-1/2 text-muted text-sm leading-tight font-dynapuff">
-            <p>Sweta Kumari</p>
-            <p>Creative Frontend Developer</p>
+    <div class="absolute left-10 top-1/3 -translate-y-1/2 text-muted text-sm leading-tight font-dynapuff">
+        <p>Sweta Kumari</p>
+        <p>Creative Frontend Developer</p>
+    </div>
+    <div class="absolute left-[22%] top-1/3 -translate-y-1/2 text-muted text-sm leadinwg-tight font-dynapuff">
+        <p>Issue N°001 / 2026</p>
+        <p>Ref. SW-PORTFOLIO-V1</p>
+    </div>
+    <!-- Skills Scroller (Right) -->
+    <div class="skills-scroller" id="skillsScroller">
+        <div class="skills-track" id="skillsTrack">
+            <!-- Skills will be injected here by JS -->
         </div>
-        <div class="absolute left-[22%] top-1/3 -translate-y-1/2 text-muted text-sm leadinwg-tight font-dynapuff">
-            <p>Issue N°001 / 2026</p>
-            <p>Ref. SW-PORTFOLIO-V1</p>
-        </div>
+    </div>
+
     <script type="module" src="./src/js/cube.js"></script>
     <script src="./src/js/ruler.js"></script>
+    <script src="./src/js/skills.js"></script>
 </body>
+
 </html>

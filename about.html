@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - Sweta Kumari</title>
+
+    <!-- External Credits -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/thin/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+
+    <!-- Tailwind 4 Browser Tool -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+
+    <!-- Three.js Import Map -->
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
+      }
+    }
+    </script>
+
+    <!-- Local Styles -->
+    <link rel="stylesheet" href="./src/css/style.css">
+
+    <style>
+        @font-face {
+            font-family: 'Gilroy';
+            src: url('https://fonts.cdnfonts.com/css/gilroy-bold');
+        }
+
+        body {
+            background-color: #0B0B0C;
+            color: #F5F5F5;
+            font-family: 'Gilroy', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .bg-primary {
+            background-color: #FF3B00;
+        }
+
+        .text-primary {
+            color: #FF3B00;
+        }
+
+        .border-primary {
+            border-color: #FF3B00;
+        }
+
+        @keyframes fadeUp {
+
+            0%,
+            19.9% {
+                opacity: 1;
+            }
+
+            20%,
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .img1 {
+            animation: fadeUp 20s ease-in-out 0s infinite;
+            opacity: 0;
+        }
+
+        .img2 {
+            animation: fadeUp 20s ease-in-out 4s infinite;
+            opacity: 0;
+        }
+
+        .img3 {
+            animation: fadeUp 20s ease-in-out 8s infinite;
+            opacity: 0;
+        }
+
+        .img4 {
+            animation: fadeUp 20s ease-in-out 12s infinite;
+            opacity: 0;
+        }
+
+        .img5 {
+            animation: fadeUp 20s ease-in-out 16s infinite;
+            opacity: 0;
+        }
+
+        @keyframes anim-glow {
+
+            0%,
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 0.8;
+            }
+        }
+
+        .anim-glow {
+            animation: anim-glow 8s ease-in-out infinite;
+        }
+
+        .cursor {
+            transition: transform 0.1s ease-out;
+        }
+
+        /* Custom scrollbar for minimalist look */
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0B0B0C;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #FF3B00;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body class="bg-[#0B0B0C] text-white selection:bg-primary selection:text-white">
+
+    <!-- Particles Background -->
+    <canvas class="particles-bg fixed top-0 left-0 w-full h-full pointer-events-none z-[-1]"></canvas>
+
+    <!-- Cursor -->
+    <div class="cursor w-[250px] h-auto fixed z-[9999] pointer-events-none opacity-0 scale-50">
+        <div class="flex gap-2 mb-3">
+            <div class="w-6 h-7 rounded-full border border-zinc-500"></div>
+            <button class="bg-white py-1 px-3 text-black uppercase rounded-full text-[10px] font-bold">view
+                work</button>
+        </div>
+        <div class="relative z-10 bg-white/20 px-4 py-2 rounded-t-lg backdrop-blur-md">
+            <nav class="flex gap-2">
+                <span class="w-2 h-2 rounded-full bg-white/40"></span>
+                <span class="w-2 h-2 rounded-full bg-white/40"></span>
+                <span class="w-2 h-2 rounded-full bg-white/40"></span>
+            </nav>
+        </div>
+        <div class="w-[250px] h-[300px] bg-zinc-800 relative overflow-hidden rounded-b-lg">
+            <img src="https://i.pinimg.com/736x/44/b7/2f/44b72fc40b63fcd8f2f8591195e7e6a2.jpg"
+                class="img1 absolute inset-0 object-cover w-full h-full" alt="">
+            <img src="https://i.pinimg.com/736x/ec/47/f9/ec47f928f6616a24bc19f3db1216c6cd.jpg"
+                class="img2 absolute inset-0 object-cover w-full h-full" alt="">
+            <img src="https://i.pinimg.com/736x/cb/d7/8d/cbd78d295e767641b7adc9021dc4bb10.jpg"
+                class="img3 absolute inset-0 object-cover w-full h-full" alt="">
+            <img src="https://i.pinimg.com/736x/39/b3/5d/39b35dca24bd0d641e99b47ad6e4acec.jpg"
+                class="img4 absolute inset-0 object-cover w-full h-full" alt="">
+            <img src="https://i.pinimg.com/736x/8f/0c/e2/8f0ce2b52ad4e5532efed66cebcd4bc4.jpg"
+                class="img5 absolute inset-0 object-cover w-full h-full" alt="">
+        </div>
+    </div>
+
+    <div data-scroll-container>
+        <div class="bg-[#0B0B0C]">
+            <!-- NAVIGATION -->
+            <nav
+                class="fixed top-0 left-0 w-full z-[100] py-8 flex justify-around font-mono text-xs uppercase tracking-widest backdrop-blur-sm bg-black/20">
+                <a href="./index.html"
+                    class="hover:text-primary transition-colors border-b border-transparent hover:border-primary">Home</a>
+                <a href="./about.html" class="text-primary border-b border-primary">About</a>
+                <a href="#"
+                    class="hover:text-primary transition-colors border-b border-transparent hover:border-primary">Work</a>
+                <a href="#"
+                    class="hover:text-primary transition-colors border-b border-transparent hover:border-primary">Contact</a>
+            </nav>
+
+            <!-- HERO SECTION -->
+            <div class="bg-main min-h-screen">
+                <div class="flex flex-col md:flex-row gap-10 md:gap-40 px-10 md:px-20 pt-40">
+                    <h1 class="text-[12vh] md:text-[20vh] text-white leading-none font-bold uppercase reveal-title">
+                        Creative
+                    </h1>
+                    <div class="flex flex-col justify-end pb-10">
+                        <span class="section-lorem text-secondary font-mono text-sm leading-relaxed opacity-60">
+                            BUILDING PRODUCTION-READY <br>SYSTEMS AND EXPLORING <br>CREATIVE CODING.
+                        </span>
+                    </div>
+                </div>
+
+                <div
+                    class="text-end flex flex-col md:flex-row items-end justify-end gap-2 md:gap-6 px-10 md:px-20 -mt-5 md:-mt-20">
+                    <span
+                        class="animatedText text-[18vh] md:text-[28vh] text-primary font-bold leading-none">Visual</span>
+                    <h1 class="text-[12vh] md:text-[20vh] text-white font-bold leading-none uppercase">Designer</h1>
+                </div>
+
+                <!-- ABOUT CONTENT -->
+                <div class="content-div flex flex-col lg:flex-row px-10 md:px-20 items-center py-40 gap-20" data-scroll>
+                    <div class="text-div lg:w-1/2" data-scroll data-scroll-speed="1">
+                        <span class="text-2xl md:text-4xl font-bold leading-tight uppercase tracking-tighter">
+                            <span class="text-reveal block">I AM SWETA. I<br></span>
+                            <span class="text-reveal block">CREATE <span class="text-primary">UNCONVENTIONAL</span>
+                                YET<br></span>
+                            <span class="text-reveal block">FUNCTIONAL & VISUALLY<br></span>
+                            <span class="text-reveal block">PLEASING INTERFACES<br></span>
+                            <span class="text-reveal block">FOR MOBILE AND WEB.</span>
+                        </span>
+                        <p class="mt-10 text-secondary font-mono text-sm max-w-md opacity-70">
+                            A Full-Stack Developer focused on building scalable systems. I work across the stack — from
+                            designing responsive interfaces to engineering backend systems.
+                        </p>
+                    </div>
+
+                    <div class="main-div flex relative h-[60vh] md:h-[90vh] w-full md:w-[70vh]" data-scroll
+                        data-scroll-speed="-1">
+                        <div
+                            class="h-full w-full rounded-3xl relative -rotate-6 overflow-hidden border border-white/10 img-rotate-item bg-zinc-900">
+                            <img src="https://i.pinimg.com/736x/65/b3/ed/65b3ed2624b17a40138c07a7fa194dd7.jpg"
+                                class="h-full w-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                                alt="Work 1">
+                        </div>
+                        <div
+                            class="h-full w-full absolute mt-10 ml-10 rounded-3xl -rotate-3 overflow-hidden border border-white/10 img-rotate-item bg-zinc-900 shadow-2xl">
+                            <img src="https://i.pinimg.com/736x/6f/3b/54/6f3b542a15f51f3cd1fc25e1578fefa8.jpg"
+                                class="h-full w-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                                alt="Work 2">
+                        </div>
+                        <div
+                            class="h-full w-full absolute mt-20 ml-20 rounded-3xl -rotate-1 overflow-hidden border border-primary/20 img-rotate-item bg-zinc-900 shadow-2xl">
+                            <img src="https://i.pinimg.com/736x/9c/04/ea/9c04ea1de6d28cd3909ce4a9062ff74f.jpg"
+                                class="h-full w-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                                alt="Work 3">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SERVICES SECTION -->
+                <div class="sub-hero bg-[#0F0F10] w-full px-10 md:px-20 py-40 border-t border-white/5" data-scroll>
+                    <div class="text-[10vh] font-thin text-zinc-800 mb-10">
+                        <i class="ph-thin ph-arrow-down-right"></i>
+                    </div>
+
+                    <div class="pl-0 md:pl-20 uppercase tracking-tighter" data-scroll data-scroll-speed="1">
+                        <p class="text-secondary text-sm font-mono mb-10 opacity-50 uppercase">Things I Can Help you
+                            with.
+                        </p>
+                        <p class="text-3xl md:text-5xl font-bold text-white leading-tight">
+                            Web & Mobile / UI&UX / <br>
+                            Branding / Front-End <br>
+                            Development
+                        </p>
+                        <hr class="mt-20 border-zinc-800">
+                    </div>
+
+                    <div class="mt-40 text-white flex justify-between items-center" data-scroll>
+                        <h2 class="text-[10vh] md:text-[18vh] font-bold uppercase leading-none">
+                            About <span class="text-primary">M</span>e
+                        </h2>
+                        <div class="hidden md:block">
+                            <i class="ph-thin ph-arrow-down-left text-[10vh] text-zinc-800"></i>
+                        </div>
+                    </div>
+
+                    <!-- BIO BLOCKS -->
+                    <div
+                        class="grid grid-cols-1 md:grid-cols-2 gap-20 mt-20 text-secondary leading-relaxed font-mono text-sm max-w-4xl opacity-80">
+                        <div data-scroll data-scroll-speed="0.5">
+                            <p class="text-white font-bold mb-5">HEY. I’M SWETA.</p>
+                            <p>A FULL-STACK DEVELOPER FOCUSED ON BUILDING <span class="text-primary">SCALABLE AND
+                                    INTERACTIVE</span> WEB SYSTEMS.</p>
+                            <p class="mt-10">I WORK ACROSS THE STACK — FROM DESIGNING RESPONSIVE INTERFACES TO
+                                ENGINEERING BACKEND SYSTEMS WITH AUTHENTICATION, PAYMENTS, AND REAL-TIME FEATURES.</p>
+                            <p class="mt-5">MY PROJECTS INCLUDE PRODUCTION-LEVEL APPLICATIONS WITH REST APIS, ROLE-BASED
+                                ACCESS, AND AUTOMATED WORKFLOWS.</p>
+                        </div>
+                        <div data-scroll data-scroll-speed="1">
+                            <p>RECENTLY, I’VE BEEN EXPLORING <span class="text-primary">CREATIVE FRONTEND</span>
+                                DEVELOPMENT — USING THREE.JS AND GSAP TO BUILD MORE IMMERSIVE, MOTION-DRIVEN
+                                EXPERIENCES.</p>
+                            <p class="mt-10 font-bold text-white uppercase italic">I CARE ABOUT STRUCTURE, PERFORMANCE,
+                                AND BUILDING SYSTEMS THAT ACTUALLY WORK — NOT JUST LOOK GOOD.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-20 mt-40">
+                        <div data-scroll data-scroll-speed="0.5">
+                            <h3 class="text-xs font-bold text-zinc-500 uppercase tracking-[0.3em] mb-10">What I Do</h3>
+                            <ul
+                                class="text-2xl md:text-3xl font-bold text-white leading-tight uppercase tracking-tighter">
+                                <li class="border-b border-zinc-900 py-4 hover:text-primary transition-colors">
+                                    Full-Stack Development</li>
+                                <li class="border-b border-zinc-900 py-4 hover:text-primary transition-colors">API &
+                                    Backend Systems</li>
+                                <li class="border-b border-zinc-900 py-4 hover:text-primary transition-colors">
+                                    Interactive Frontend</li>
+                                <li class="border-b border-zinc-900 py-4 hover:text-primary transition-colors">3D &
+                                    Motion Experiences</li>
+                                <li class="border-b border-zinc-900 py-4 hover:text-primary transition-colors">Scalable
+                                    App Design</li>
+                            </ul>
+                        </div>
+                        <div data-scroll data-scroll-speed="1">
+                            <h3 class="text-xs font-bold text-zinc-500 uppercase tracking-[0.3em] mb-10">Current Focus
+                            </h3>
+                            <ul
+                                class="text-2xl md:text-3xl font-bold text-white leading-tight uppercase tracking-tighter">
+                                <li class="border-b border-zinc-900 py-4 hover:text-primary transition-colors">
+                                    Production-Ready Systems</li>
+                                <li class="border-b border-zinc-900 py-4 hover:text-primary transition-colors">Creative
+                                    Coding</li>
+                                <li class="border-b border-zinc-900 py-4 hover:text-primary transition-colors">System
+                                    Performance</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer Section -->
+                <div class="bg-[#0B0B0C] w-full px-10 md:px-20 py-40 border-t border-white/5 relative overflow-hidden"
+                    data-scroll>
+                    <!-- Orange Ball Effect -->
+                    <div
+                        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] pointer-events-none z-0 anim-glow">
+                    </div>
+
+                    <div class="relative z-10">
+                        <div class="text-center" data-scroll data-scroll-speed="1">
+                            <p
+                                class="text-[8vh] md:text-[15vh] text-white leading-none uppercase font-black tracking-tighter">
+                                Let's Talk<br>About the Next<br>Project
+                            </p>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row justify-center gap-10 mt-20">
+                            <a href="mailto:sweta@example.com"
+                                class="px-10 py-5 border border-white/20 rounded-full text-center font-bold uppercase hover:bg-white hover:text-black transition-all duration-500">Write
+                                Message</a>
+                            <a href="#"
+                                class="px-10 py-5 bg-primary text-white rounded-full text-center font-bold uppercase hover:bg-white hover:text-black transition-all duration-500">Discuss
+                                Project</a>
+                        </div>
+
+                        <div
+                            class="flex flex-wrap justify-between mt-20 pt-10 border-t border-white/10 font-bold uppercase text-xs tracking-widest text-zinc-500">
+                            <a href="#" class="hover:text-primary transition-colors">Instagram</a>
+                            <a href="#" class="hover:text-primary transition-colors">LinkedIn</a>
+                            <a href="#" class="hover:text-primary transition-colors">Twitter</a>
+                            <a href="#" class="hover:text-primary transition-colors">Dribble</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script type="module" src="./src/js/particles/particles.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script type="module">
+        import { gsap } from 'https://cdn.skypack.dev/gsap';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize Locomotive Scroll
+            const scroll = new LocomotiveScroll({
+                el: document.querySelector('[data-scroll-container]'),
+                smooth: true,
+                lerp: 0.03
+            });
+
+            // GSAP Timeline
+            const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+
+            // Ensure content is visible initially (fallback)
+            gsap.set(".reveal-title, .section-lorem, .animatedText", { opacity: 1 });
+
+            tl.from(".reveal-title", {
+                y: 50,
+                opacity: 0,
+                duration: 1.5,
+                stagger: 0.1
+            });
+
+            tl.from('.section-lorem', {
+                y: 20,
+                opacity: 0,
+                duration: 1
+            }, "-=1");
+
+            // Text Split Animation
+            const textEl = document.querySelector(".animatedText");
+            if (textEl) {
+                const letters = textEl.textContent.trim().split("");
+                textEl.textContent = "";
+                letters.forEach(char => {
+                    const span = document.createElement("span");
+                    span.classList.add("letter", "inline-block");
+                    span.textContent = char;
+                    textEl.appendChild(span);
+                });
+
+                tl.from(".letter", {
+                    opacity: 0,
+                    y: 20,
+                    duration: 1,
+                    stagger: 0.05
+                }, "-=0.8");
+            }
+
+            // Hover interactions
+            const mainItems = document.querySelectorAll(".main");
+            const cursor = document.querySelector(".cursor");
+            const subHero = document.querySelector(".sub-hero");
+
+            if (cursor) {
+                gsap.set(cursor, { opacity: 0, scale: 0.6, pointerEvents: "none" });
+
+                mainItems.forEach(item => {
+                    item.addEventListener("mouseenter", () => {
+                        gsap.to(subHero, { backgroundColor: "#1A1A1B", duration: 0.5 });
+                        gsap.to(cursor, { opacity: 1, scale: 1, duration: 0.3 });
+                    });
+
+                    item.addEventListener("mouseleave", () => {
+                        gsap.to(subHero, { backgroundColor: "#0F0F10", duration: 0.5 });
+                        gsap.to(cursor, { opacity: 0, scale: 0.6, duration: 0.3 });
+                    });
+                });
+
+                document.addEventListener("mousemove", (e) => {
+                    gsap.to(cursor, {
+                        x: e.clientX,
+                        y: e.clientY,
+                        duration: 1,
+                        ease: "power3.out"
+                    });
+                });
+            }
+
+            // Refresh Locomotive on resize or content change
+            window.addEventListener('resize', () => scroll.update());
+            setTimeout(() => scroll.update(), 1000);
+        });
+    </script>
+</body>
+
+</html>
