@@ -19,6 +19,19 @@
     opacity: 0;
 }
 
+/* Use main section fonts across other headings */
+h2, h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+[data-fold-text] {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-weight: 700;
+}
+
 
 
 
@@ -84,6 +97,8 @@
         transform: translateY(-50%);
     }
 }
+
+/* marquee removed */
 
 /* Responsive adjustment */
 @media (max-width: 768px) {
