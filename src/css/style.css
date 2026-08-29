@@ -1,15 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=DynaPuff&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@1&family=Italianno&family=DynaPuff&display=swap');
 @import "tailwindcss";
+
+.font-bebas {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: -0.02em;
+}
+
+.font-serif-italic {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+}
+
+.font-script {
+    font-family: 'Italianno', cursive;
+}
+
+[data-fold-text] {
+    opacity: 0;
+}
 
 
 
 
 :root {
-    --color-bg: #0B0B0C;
-    --color-primary: #FF3B00;
-    --color-text-main: #F5F5F5;
-    --color-text-secondary: #9CA3AF;
-    --color-text-muted: #6B7280;
+    --color-bg: #200A24;
+    --color-primary: #D26F8D;
+    --color-text-main: #FFFFFF;
+    --color-text-secondary: #FFFFFF;
+    --color-text-muted: #D4C3D2;
 }
 
 .text-primary {
@@ -72,4 +90,68 @@
     .skills-scroller {
         @apply right-4 w-36;
     }
+}
+
+/* ── Line Sidebar Proximity Effect ── */
+.line-sidebar {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-left: calc(var(--marker-length, 60px) + var(--marker-gap, 15px));
+}
+
+/* ── ScrollStack Card Stacking Styles ── */
+.scroll-stack-container {
+    position: relative;
+    width: 100%;
+}
+
+.scroll-stack-card {
+    position: relative;
+    width: 100%;
+    border-radius: 32px;
+    background: rgba(20, 20, 24, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    margin-bottom: 3rem;
+    transform-origin: top center;
+    will-change: transform, filter, opacity;
+}
+
+.line-sidebar-item {
+    position: relative;
+    cursor: pointer;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.line-sidebar-marker {
+    position: absolute;
+    left: calc(-1 * var(--marker-length, 60px) - var(--marker-gap, 15px));
+    top: 50%;
+    height: 2px;
+    width: var(--marker-length, 60px);
+    transform-origin: left;
+    background-color: color-mix(in srgb, var(--accent-color, #FF3B00) calc(var(--effect, 0) * 100%), var(--marker-color, #52525b));
+    transform: translateY(-50%) scaleX(calc(0.6 + var(--effect, 0) * 0.6));
+    transition: opacity 0.3s ease;
+}
+
+.line-sidebar-content {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    color: color-mix(in srgb, var(--accent-color, #FF3B00) calc(var(--effect, 0) * 100%), var(--text-color, #F5F5F5));
+    transform: translateX(calc(var(--effect, 0) * var(--max-shift, 35px)));
+    will-change: transform, color;
+}
+
+.line-sidebar-index {
+    margin-right: 1.2rem;
+    font-family: monospace;
+    font-size: 0.9em;
+    opacity: calc(0.45 + var(--effect, 0) * 0.55);
 }

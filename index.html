@@ -21,6 +21,8 @@
 </head>
 
 <body class="font-['Gilroy'] bg-main text-secondary">
+    <canvas id="noise-canvas" aria-hidden="true"
+        style="position:fixed;inset:0;pointer-events:none;z-index:1000000;image-rendering:pixelated;"></canvas>
 
     <style>
         @keyframes fadeUp {
@@ -69,8 +71,8 @@
         }
 
         .skill-tag:hover {
-            box-shadow: 0 0 20px rgba(255, 59, 0, 0.3);
-            background-color: rgba(255, 59, 0, 0.05);
+            box-shadow: 0 0 20px rgba(224, 109, 133, 0.4);
+            background-color: rgba(224, 109, 133, 0.1);
         }
 
         .skill-tag::after {
@@ -96,7 +98,7 @@
             display: inline-block;
         }
     </style>
-    <div class="black bg-black h-screen w-full fixed z-[9999] ">
+    <div class="black bg-main h-screen w-full fixed z-[9999] ">
         <div class=" text-center uppercase text-xs py-5 relative">
             <h5 class="reveal text-white ">Design portfolio</h5>
             <h5 class="reveal text-white ">&copy; 2026</h5>
@@ -113,258 +115,543 @@
 
         <div class=" bg-main text-secondary">
             <nav
-                class="fixed top-0 left-0 w-full z-50 py-4 flex justify-around font-bold text-sm text-secondary bg-main">
-                <a href="#home" class="hover:text-primary border-b border-secondary hover:border-primary">Home</a>
-                <a href="#about" class="hover:text-primary border-b border-secondary hover:border-primary">About</a>
-                <a href="#skills" class="hover:text-primary border-b border-secondary hover:border-primary">Skills</a>
-                <a href="#projects"
-                    class="hover:text-primary border-b border-secondary hover:border-primary">Projects</a>
-                <a href="#contact" class="hover:text-primary border-b border-secondary hover:border-primary">Contact</a>
+                class="fixed top-0 left-0 w-full z-50 px-6 md:px-12 py-4 flex items-start justify-between font-mono text-xs uppercase tracking-wider text-secondary/90 bg-main/80 backdrop-blur-md border-b border-white/5">
+                <!-- 1. Left Brand Name & Tagline -->
+                <div class="flex items-center gap-4">
+                    <a href="#home"
+                        class="flex flex-col font-bold leading-none tracking-tighter text-base hover:text-primary transition-colors">
+                        <span class="text-white">SWETA</span>
+                        <span class="text-white">KUMARI</span>
+                    </a>
+                    <div class="hidden sm:block h-6 w-[1px] bg-white/20"></div>
+                    <span class="hidden sm:block text-[10px] text-muted leading-tight uppercase max-w-[140px]">
+                        Full Stack Dev /<br>Crafting Web Apps
+                    </span>
+                </div>
+
+                <!-- 2. Center Navigation Links (Circled numbers ①, ②, ③, ④) -->
+                <div class="hidden md:flex flex-col gap-1 text-[11px]">
+                    <a href="#home" class="hover:text-primary transition-colors flex items-center gap-1.5">
+                        <span class="text-primary text-[10px]">①</span> HOME
+                    </a>
+                    <a href="#about" class="hover:text-primary transition-colors flex items-center gap-1.5">
+                        <span class="text-primary text-[10px]">②</span> ABOUT
+                    </a>
+                    <a href="#projects" class="hover:text-primary transition-colors flex items-center gap-1.5">
+                        <span class="text-primary text-[10px]">③</span> WORKS
+                    </a>
+                    <a href="#education" class="hover:text-primary transition-colors flex items-center gap-1.5">
+                        <span class="text-primary text-[10px]">④</span> ACADEMICS
+                    </a>
+                </div>
+
+                <!-- 3. Social Media Links (Circled numbers ①, ②, ③) -->
+                <div class="hidden lg:flex flex-col gap-1 text-[11px]">
+                    <a href="https://github.com/Sweta-82" target="_blank"
+                        class="hover:text-primary transition-colors flex items-center gap-1.5">
+                        <span class="text-primary text-[10px]">①</span> GITHUB
+                    </a>
+                    <a href="https://www.linkedin.com/in/swetakumari86/" target="_blank"
+                        class="hover:text-primary transition-colors flex items-center gap-1.5">
+                        <span class="text-primary text-[10px]">②</span> LINKEDIN
+                    </a>
+                    <a href="mailto:ydvsweta19@gmail.com"
+                        class="hover:text-primary transition-colors flex items-center gap-1.5">
+                        <span class="text-primary text-[10px]">③</span> EMAIL
+                    </a>
+                </div>
+
+                <!-- 4. Right Contact Status -->
+                <div class="flex flex-col items-end text-[10px] text-right">
+                    <span class="text-primary font-semibold flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                        AVAILABLE FOR PROJECTS
+                    </span>
+                    <a href="mailto:ydvsweta19@gmail.com" class="text-muted hover:text-white transition-colors mt-0.5">
+                        SEND INQUIRY →
+                    </a>
+                </div>
             </nav>
 
-            <div id="home" class="px-15 pt-10">
+            <div id="home"
+                class="min-h-screen px-5 md:px-15 pt-28 pb-10 flex flex-col justify-between relative overflow-hidden select-none">
 
-    <!-- TOP TEXT -->
-    <div class="flex gap-40 items-start">
-        <h1 class="text-[20vh] text-secondary">Full Stack</h1>
-
-        <!-- LEFT SMALL TEXT -->
-        <span class="section-lorem py-10 text-muted font-medium leading-relaxed max-w-[180px]">
-            Full Stack Developer focused on building scalable 
-            and real-world web applications.
-        </span>
-
-        <!-- RIGHT SMALL TEXT -->
-        <span class="section-lorem py-20 text-muted font-medium leading-relaxed max-w-[220px]">
-            I design and develop modern digital experiences using 
-            clean code, performance-focused architecture, and 
-            interactive UI.
-        </span>
-    </div>
-
-    <!-- MAIN NAME -->
-    <div class="text-end flex gap-6 mt-10">
-        <span class="animatedText text-[28vh] text-primary">Developer</span>
-    </div>
-
-</div>
-            <!-- below hero section -->
-            <div class="hero-section-body content-div flex px-15 items-center justify-between gap-10" data-scroll>
-                <!-- About Me Section -->
-                <div id="about" class="flex-1 mt-40">
-                    <h2 class="text-[10vh] text-secondary">About Me</h2>
-
-                    <p class="mt-6 text-secondary text-xl leading-relaxed">
-                        I am <span class="text-primary">Sweta Kumari</span>, a B.Tech Computer Science student and a
-                        Full Stack Developer.
-                        I specialize in building scalable and real-world web applications using technologies
-                        like React, Node.js, and modern backend systems.
-
-                        I have experience working on full-stack projects including e-commerce platforms,
-                        API-based systems, and real-time applications. I focus on writing clean, efficient
-                        code and designing user-friendly interfaces.
-
-                        I am continuously improving my problem-solving skills through Data Structures and
-                        Algorithms and actively working on projects that solve practical problems.
-                    </p>
+                <!-- Top Info Badges -->
+                <div
+                    class="flex flex-wrap items-center justify-between gap-4 pt-6 text-xs uppercase font-mono tracking-widest text-muted">
+                    <span class="flex items-center gap-2 border border-white/10 px-4 py-1.5 rounded-full bg-white/5">
+                        <span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+                        FULL STACK DEVELOPER
+                    </span>
+                    <span class="hidden md:inline-block max-w-sm text-right leading-relaxed text-secondary/70">
+                        Designing &amp; engineering high-performance web applications with clean code &amp; modern UI.
+                    </span>
                 </div>
-                <div class="main-div flex flex-1 justify-center" data-scroll data-scroll-speed="-1"
-    data-scroll-direction="horizontal">
 
-    <div class="main-div1 h-[60vh] w-[45vh] bg-primary rounded-4xl relative -rotate-10 overflow-hidden">
-        <img src="./src/assets/images/div3.png"
-            class="h-full w-full object-cover grayscale hover:grayscale-0 duration-700" alt="">
-    </div>
+                <!-- MAIN DISPLAY TYPOGRAPHY WITH OVERLAY SCRIPT IN FRONT -->
+                <div class="relative w-full flex flex-col items-center justify-center text-center my-auto py-10">
 
-    <div class="main-div2 h-[60vh] w-[45vh] bg-main absolute mt-16 ml-16 rounded-4xl -rotate-5 overflow-hidden">
-        <img src="./src/assets/images/div2.png"
-            class="h-full w-full object-cover grayscale hover:grayscale-0 duration-700" alt="">
-    </div>
+                    <!-- Line 1: FULL-STACK -->
+                    <div class="relative inline-block leading-none">
+                        <h1
+                            class="text-[23vw] md:text-[19vw] font-extrabold uppercase tracking-tight text-white font-bebas leading-[0.85] select-none">
+                            FULL-STACK
+                        </h1>
+                        <!-- Overlay Script Text in Front with 3D FoldText Hinge Unfolding -->
+                        <span data-fold-text="creative &amp; scalable" data-hinge="top" data-delay="0.2"
+                            data-duration="0.65" data-stagger="0.045" data-perspective="700" data-crease-shading="0.55"
+                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-primary font-serif-italic text-[10vw] md:text-[7vw] font-normal whitespace-nowrap pointer-events-none drop-shadow-[0_0_20px_rgba(210,111,141,0.7)] z-10">
+                            creative &amp; scalable
+                        </span>
+                    </div>
 
-    <div class="main-div3 h-[60vh] w-[45vh] bg-primary mt-32 ml-32 absolute rounded-4xl -rotate-2 overflow-hidden">
-        <img src="./src/assets/images/div1.png"
-            class="h-full w-full object-cover grayscale hover:grayscale-0 duration-700" alt="">
-    </div>
+                    <!-- Line 2: DEVELOPER -->
+                    <div class="relative inline-block leading-none -mt-4 md:-mt-10">
+                        <h1
+                            class="text-[23vw] md:text-[19vw] font-extrabold uppercase tracking-tight text-white font-bebas leading-[0.85] select-none">
+                            DEVELOPER
+                        </h1>
+                        <!-- Overlay Script Text in Front with 3D FoldText Hinge Unfolding -->
+                        <span data-fold-text="web &amp; backend" data-hinge="top" data-delay="0.6" data-duration="0.65"
+                            data-stagger="0.045" data-perspective="700" data-crease-shading="0.55"
+                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-primary font-serif-italic text-[10vw] md:text-[7vw] font-normal whitespace-nowrap pointer-events-none drop-shadow-[0_0_20px_rgba(210,111,141,0.7)] z-10">
+                            web &amp; backend
+                        </span>
+                    </div>
 
-</div>
+                </div>
+
+                <!-- Bottom Scroll Down Indicator -->
+                <div
+                    class="flex items-center justify-between border-t border-white/10 pt-6 text-xs uppercase font-mono text-muted">
+                    <span>SCROLL TO EXPLORE</span>
+                    <i class="ph-thin ph-arrow-down text-2xl text-primary animate-bounce"></i>
+                </div>
+
             </div>
-            <div id="projects" class="sub-hero bg-main w-full px-15" data-scroll>
-                <div class="text-[15vh] font-extralight text-muted ">
+            <!-- below hero section -->
+            <div class="hero-section-body content-div flex flex-col lg:flex-row px-5 md:px-15 items-center justify-between gap-10"
+                data-scroll>
+                <!-- About Me Section -->
+                <div id="about" class="flex-1 mt-20 lg:mt-40">
+                    <h2 class="text-6xl sm:text-8xl lg:text-[12vh] text-secondary font-serif-italic font-normal">About
+                        Me</h2>
+
+                    <div class="scroll-reveal my-8" data-base-opacity="0.1" data-enable-blur="true"
+                        data-base-rotation="3" data-blur-strength="4">
+                        <p
+                            class="mt-6 text-secondary font-serif-italic text-2xl md:text-4xl lg:text-[2.5rem] leading-relaxed tracking-wide">
+                            I am <span class="text-primary font-bold not-italic font-sans">Sweta Kumari</span>, a B.Tech
+                            Computer Science student and Full Stack Developer, specializing in building scalable web
+                            applications with React, Node.js, and modern backend systems.
+                        </p>
+                        <p
+                            class="mt-6 text-secondary font-serif-italic text-2xl md:text-4xl lg:text-[2.5rem] leading-relaxed tracking-wide">
+                            I have experience crafting full-stack architectures including e-commerce platforms,
+                            API-driven systems, and real-time applications with a focus on writing clean code and
+                            intuitive UI design.
+                        </p>
+                        <p
+                            class="mt-6 text-secondary font-serif-italic text-2xl md:text-4xl lg:text-[2.5rem] leading-relaxed tracking-wide">
+                            I am continuously honing my problem-solving skills through Data Structures &amp; Algorithms
+                            and actively engineering projects that solve real-world software challenges.
+                        </p>
+                    </div>
+                </div>
+                <div class="main-div flex flex-1 justify-center relative w-full h-[50vh] sm:h-[60vh] lg:h-[70vh] mt-10 lg:mt-0"
+                    data-scroll data-scroll-speed="-1" data-scroll-direction="horizontal">
+
+                    <div
+                        class="main-div1 h-[40vh] w-[30vh] sm:h-[50vh] sm:w-[38vh] lg:h-[60vh] lg:w-[45vh] bg-primary rounded-3xl lg:rounded-4xl relative -rotate-10 overflow-hidden shadow-2xl">
+                        <img src="./src/assets/images/div3.png"
+                            class="h-full w-full object-cover grayscale hover:grayscale-0 duration-700" alt="">
+                    </div>
+
+                    <div
+                        class="main-div2 h-[40vh] w-[30vh] sm:h-[50vh] sm:w-[38vh] lg:h-[60vh] lg:w-[45vh] bg-main absolute mt-8 ml-8 sm:mt-12 sm:ml-12 lg:mt-16 lg:ml-16 rounded-3xl lg:rounded-4xl -rotate-5 overflow-hidden shadow-2xl border border-white/10">
+                        <img src="./src/assets/images/div2.png"
+                            class="h-full w-full object-cover grayscale hover:grayscale-0 duration-700" alt="">
+                    </div>
+
+                    <div
+                        class="main-div3 h-[40vh] w-[30vh] sm:h-[50vh] sm:w-[38vh] lg:h-[60vh] lg:w-[45vh] bg-primary mt-16 ml-16 sm:mt-24 sm:ml-24 lg:mt-32 lg:ml-32 absolute rounded-3xl lg:rounded-4xl -rotate-2 overflow-hidden shadow-2xl">
+                        <img src="./src/assets/images/div1.png"
+                            class="h-full w-full object-cover grayscale hover:grayscale-0 duration-700" alt="">
+                    </div>
+
+                </div>
+            </div>
+            <div id="projects" class="sub-hero bg-main w-full px-5 md:px-15" data-scroll>
+                <div class="text-[10vh] md:text-[15vh] font-extralight text-muted">
                     <i class="ph-thin ph-arrow-down-right"></i>
                 </div>
-                <div class="pl-30 leading-none tracking-tighter uppercase" data-scroll data-scroll-speed="-1">
-                    <p class="text-muted text-xl pb-10">Things I Can Help you <br>with.</p>
+                <div class="pl-0 md:pl-30 leading-none tracking-tighter uppercase" data-scroll data-scroll-speed="-1">
+                    <p class="text-muted text-lg md:text-xl pb-10">Things I Can Help you <br>with.</p>
                     <div id="skills" class="mt-10">
-                        <div class="flex flex-wrap gap-4">
+                        <div class="flex flex-wrap gap-3 md:gap-4">
                             <div
-                                class="skill-tag px-6 py-2 border border-primary/50 rounded-full text-primary text-xl duration-500">
+                                class="skill-tag px-4 py-1.5 md:px-6 md:py-2 border border-primary/50 rounded-full text-primary text-base md:text-xl duration-500">
                                 C++</div>
                             <div
-                                class="skill-tag px-6 py-2 border border-primary/50 rounded-full text-primary text-xl duration-500">
+                                class="skill-tag px-4 py-1.5 md:px-6 md:py-2 border border-primary/50 rounded-full text-primary text-base md:text-xl duration-500">
+                                C</div>
+                            <div
+                                class="skill-tag px-4 py-1.5 md:px-6 md:py-2 border border-primary/50 rounded-full text-primary text-base md:text-xl duration-500">
                                 JavaScript</div>
                             <div
-                                class="skill-tag px-6 py-2 border border-primary/50 rounded-full text-primary text-xl duration-500">
-                                PHP</div>
+                                class="skill-tag px-4 py-1.5 md:px-6 md:py-2 border border-primary/50 rounded-full text-primary text-base md:text-xl duration-500">
+                                TypeScript</div>
                             <div
-                                class="skill-tag px-6 py-2 border border-primary/50 rounded-full text-primary text-xl duration-500">
-                                HTML</div>
+                                class="skill-tag px-4 py-1.5 md:px-6 md:py-2 border border-primary/50 rounded-full text-primary text-base md:text-xl duration-500">
+                                HTML5</div>
                             <div
-                                class="skill-tag px-6 py-2 border border-primary/50 rounded-full text-primary text-xl duration-500">
-                                CSS</div>
+                                class="skill-tag px-4 py-1.5 md:px-6 md:py-2 border border-primary/50 rounded-full text-primary text-base md:text-xl duration-500">
+                                CSS3</div>
                             <div
-                                class="skill-tag px-6 py-2 border border-primary/50 rounded-full text-primary text-xl duration-500">
-                                Tailwind</div>
+                                class="skill-tag px-4 py-1.5 md:px-6 md:py-2 border border-primary/50 rounded-full text-primary text-base md:text-xl duration-500">
+                                Tailwind CSS</div>
                             <div
-                                class="skill-tag px-6 py-2 border border-primary/50 rounded-full text-primary text-xl duration-500">
-                                React</div>
+                                class="skill-tag px-4 py-1.5 md:px-6 md:py-2 border border-primary/50 rounded-full text-primary text-base md:text-xl duration-500">
+                                React.js</div>
                             <div
-                                class="skill-tag px-6 py-2 border border-primary/50 rounded-full text-primary text-xl duration-500">
+                                class="skill-tag px-4 py-1.5 md:px-6 md:py-2 border border-primary/50 rounded-full text-primary text-base md:text-xl duration-500">
                                 Redux Toolkit</div>
                             <div
-                                class="skill-tag px-6 py-2 border border-primary/50 rounded-full text-primary text-xl duration-500">
+                                class="skill-tag px-4 py-1.5 md:px-6 md:py-2 border border-primary/50 rounded-full text-primary text-base md:text-xl duration-500">
+                                Zustand</div>
+                            <div
+                                class="skill-tag px-4 py-1.5 md:px-6 md:py-2 border border-primary/50 rounded-full text-primary text-base md:text-xl duration-500">
                                 GSAP</div>
                             <div
-                                class="skill-tag px-6 py-2 border border-primary/50 rounded-full text-primary text-xl duration-500">
+                                class="skill-tag px-4 py-1.5 md:px-6 md:py-2 border border-primary/50 rounded-full text-primary text-base md:text-xl duration-500">
+                                Three.js</div>
+                            <div
+                                class="skill-tag px-4 py-1.5 md:px-6 md:py-2 border border-primary/50 rounded-full text-primary text-base md:text-xl duration-500">
                                 Node.js</div>
                             <div
-                                class="skill-tag px-6 py-2 border border-primary/50 rounded-full text-primary text-xl duration-500">
+                                class="skill-tag px-4 py-1.5 md:px-6 md:py-2 border border-primary/50 rounded-full text-primary text-base md:text-xl duration-500">
                                 Express.js</div>
                             <div
-                                class="skill-tag px-6 py-2 border border-primary/50 rounded-full text-primary text-xl duration-500">
+                                class="skill-tag px-4 py-1.5 md:px-6 md:py-2 border border-primary/50 rounded-full text-primary text-base md:text-xl duration-500">
                                 REST APIs</div>
                             <div
-                                class="skill-tag px-6 py-2 border border-primary/50 rounded-full text-primary text-xl duration-500">
+                                class="skill-tag px-4 py-1.5 md:px-6 md:py-2 border border-primary/50 rounded-full text-primary text-base md:text-xl duration-500">
                                 MongoDB</div>
                             <div
-                                class="skill-tag px-6 py-2 border border-primary/50 rounded-full text-primary text-xl duration-500">
+                                class="skill-tag px-4 py-1.5 md:px-6 md:py-2 border border-primary/50 rounded-full text-primary text-base md:text-xl duration-500">
                                 MySQL</div>
                             <div
-                                class="skill-tag px-6 py-2 border border-primary/50 rounded-full text-primary text-xl duration-500">
-                                Git</div>
+                                class="skill-tag px-4 py-1.5 md:px-6 md:py-2 border border-primary/50 rounded-full text-primary text-base md:text-xl duration-500">
+                                PostgreSQL</div>
                             <div
-                                class="skill-tag px-6 py-2 border border-primary/50 rounded-full text-primary text-xl duration-500">
+                                class="skill-tag px-4 py-1.5 md:px-6 md:py-2 border border-primary/50 rounded-full text-primary text-base md:text-xl duration-500">
+                                Redis</div>
+                            <div
+                                class="skill-tag px-4 py-1.5 md:px-6 md:py-2 border border-primary/50 rounded-full text-primary text-base md:text-xl duration-500">
+                                Git & GitHub</div>
+                            <div
+                                class="skill-tag px-4 py-1.5 md:px-6 md:py-2 border border-primary/50 rounded-full text-primary text-base md:text-xl duration-500">
                                 Docker</div>
                             <div
-                                class="skill-tag px-6 py-2 border border-primary/50 rounded-full text-primary text-xl duration-500">
+                                class="skill-tag px-4 py-1.5 md:px-6 md:py-2 border border-primary/50 rounded-full text-primary text-base md:text-xl duration-500">
+                                AWS</div>
+                            <div
+                                class="skill-tag px-4 py-1.5 md:px-6 md:py-2 border border-primary/50 rounded-full text-primary text-base md:text-xl duration-500">
+                                GCP</div>
+                            <div
+                                class="skill-tag px-4 py-1.5 md:px-6 md:py-2 border border-primary/50 rounded-full text-primary text-base md:text-xl duration-500">
+                                Linux</div>
+                            <div
+                                class="skill-tag px-4 py-1.5 md:px-6 md:py-2 border border-primary/50 rounded-full text-primary text-base md:text-xl duration-500">
                                 Postman</div>
+                            <div
+                                class="skill-tag px-4 py-1.5 md:px-6 md:py-2 border border-primary/50 rounded-full text-primary text-base md:text-xl duration-500">
+                                Socket.io</div>
                         </div>
                     </div>
-                    <hr class="mt-20 mt-20 text-muted border-t-2 " data-scroll data-scroll-speed="2">
+                    <hr class="mt-16 md:mt-20 text-muted border-t-2 " data-scroll data-scroll-speed="2">
                 </div>
-                <div class="mt-[16vh] pl-[120px] text-secondary flex justify-between text-[18vh]" data-scroll>
-                    <div>
-                        <p class="">Pr<span class="text-primary">o</span>jects<span class="text-xl">(05)</span></p>
-                    </div>
-                    <div class="">
-                        <i class="ph-thin ph-arrow-down-left"></i>
-                    </div>
+                <!-- ================= PROJECTS EDITORIAL SHOWCASE ================= -->
+                <div class="mb-16 text-center mt-16 md:mt-24">
+                    <span class="text-xs uppercase tracking-widest text-primary font-mono font-bold">Featured
+                        Works</span>
+                    <h2 class="text-5xl md:text-7xl font-light text-secondary mt-3">Selected Projects</h2>
+                    <p class="text-secondary/70 max-w-xl mx-auto mt-4 text-base md:text-lg">Explore custom full-stack
+                        web applications, GenAI systems, real-time architectures, and 3D web experiences.</p>
                 </div>
-                <!-- div section -->
-                <div class="flex gap-30 items-end mt-[10vh] ">
-                    <!-- BuyNest -->
-                    <div class="main bg-main h-[120vh] w-[50vw] rounded-[3em] flex items-end px-5 pb-5 gap-4 overflow-hidden cursor-none"
-                        data-scroll data-scroll-speed="-1">
 
-                        <img src="./src/assets/images/buynest.png"
-                            class=" absolute inset-0 h-full w-full object-cover object-top hover:grayscale duration-1000"
-                            alt="BuyNest E-Commerce">
+                <div class="perspective-carousel relative max-w-6xl mx-auto overflow-hidden py-6 select-none">
 
-                        <div class="flex items-center gap-3 z-10 w-full">
-                            <a href="https://buynest-8pji.onrender.com/" target="_blank"
-                                class="rounded-[12vh] bg-primary text-white px-10 py-4 transition-colors hover:bg-[#F5F5F5] hover:text-primary whitespace-nowrap">
-                                BuyNest E-Commerce
-                            </a>
-
-                            <a href="https://github.com/Sweta-82/E-commerce-" target="_blank"
-                                class="bg-[#F5F5F5] text-primary flex items-center justify-center rounded-full w-14 h-14 shadow-lg cursor-pointer transition-transform hover:scale-110 group">
-                                <i class="ph-thin ph-arrow-up-right text-xl group-hover:rotate-45 duration-300"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- SaaSify -->
-                    <div class="main bg-main h-[70vh] w-[25vw] rounded-[3em] flex items-end px-10 pb-5 gap-4 overflow-hidden cursor-none"
-                        data-scroll data-scroll-speed="1">
-
-                        <img src="./src/assets/images/saasify.png" alt="SaaSify"
-                            class="absolute inset-0 h-full w-full object-cover object-top hover:grayscale duration-1000">
-
-                        <div class="flex items-center gap-3 z-10 w-full">
-                            <span
-                                class="rounded-[12vh] bg-primary text-white px-10 py-4 opacity-50 cursor-not-allowed whitespace-nowrap">
-                                SaaSify (Soon)
-                            </span>
-
-                            <a href="https://github.com/Sweta-82/SaaSify" target="_blank"
-                                class="bg-[#F5F5F5] text-primary flex items-center justify-center rounded-full w-14 h-14 shadow-lg cursor-pointer transition-transform hover:scale-110 group">
-                                <i class="ph-thin ph-arrow-up-right text-xl group-hover:rotate-45 duration-300"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Vida -->
-                <div class="main bg-main mt-20 h-[100vh] w-[50vw] flex mx-auto rounded-[3em] relative flex items-end px-10 pb-5 gap-2 overflow-hidden cursor-none"
-                    data-scroll>
-
-                    <img src="./src/assets/images/vida.png" alt="Vida 3D"
-                        class="absolute inset-0 h-full w-full object-cover object-top hover:grayscale duration-1000">
-
-                    <div class="flex items-center gap-3 z-10">
-                        <a href="https://vida-inky.vercel.app/" target="_blank"
-                            class="rounded-[12vh] bg-primary text-white px-10 py-4 transition-colors hover:bg-[#F5F5F5] hover:text-primary whitespace-nowrap">
-                            3D Portfolio Experience
-                        </a>
-
-                        <a href="https://github.com/Sweta-82/vida" target="_blank"
-                            class="bg-[#F5F5F5] text-primary flex items-center justify-center rounded-full shadow-lg cursor-pointer w-14 h-14 transition-transform hover:scale-110 group">
-                            <i class="ph-thin ph-arrow-up-right text-xl group-hover:rotate-45 duration-300"></i>
-                        </a>
-                    </div>
-                </div>
-                <!-- K72 & PetPaal Row -->
-                <div class="flex gap-40 items-end mt-10" data-scroll>
-                    <!-- K72 -->
-                    <div class="main bg-main h-[70vh] w-[25vw] rounded-[3em] relative flex items-end px-10 pb-5 gap-2 overflow-hidden cursor-none group"
-                        data-scroll data-scroll-speed="1">
-
-                        <img src="./src/assets/images/k2.png" alt="K72 Agency"
-                            class="absolute inset-0 h-full w-full object-cover object-top hover:grayscale duration-1000">
-
-                        <div class="flex items-center gap-3 z-10 w-full">
-                            <a href="https://k72-five-sage.vercel.app/" target="_blank"
-                                class="rounded-[12vh] bg-primary text-white px-10 py-4 transition-colors hover:bg-[#F5F5F5] hover:text-primary whitespace-nowrap">
-                                K72 Agency Website
-                            </a>
-
-                            <a href="https://github.com/Sweta-82/K72" target="_blank"
-                                class="bg-[#F5F5F5] text-primary flex items-center justify-center rounded-full w-14 h-14 shadow-lg cursor-pointer transition-transform hover:scale-110 group">
-                                <i class="ph-thin ph-arrow-up-right text-xl group-hover:rotate-45 duration-300"></i>
-                            </a>
+                    <!-- Navigation Controls Header -->
+                    <div class="flex items-center justify-between mb-8 px-4">
+                        <span class="text-xs uppercase font-mono tracking-widest text-muted">SWIPE / DRAG OR USE
+                            ARROWS</span>
+                        <div class="flex items-center gap-3">
+                            <button type="button"
+                                class="carousel-prev w-12 h-12 rounded-full border border-white/20 hover:border-primary bg-white/5 hover:bg-primary/20 text-white flex items-center justify-center transition-all duration-300 cursor-pointer">
+                                <i class="ph-thin ph-arrow-left text-2xl"></i>
+                            </button>
+                            <button type="button"
+                                class="carousel-next w-12 h-12 rounded-full border border-white/20 hover:border-primary bg-white/5 hover:bg-primary/20 text-white flex items-center justify-center transition-all duration-300 cursor-pointer">
+                                <i class="ph-thin ph-arrow-right text-2xl"></i>
+                            </button>
                         </div>
                     </div>
 
-                    <!-- PetPaal -->
-                    <div class="main bg-main h-[100vh] w-[50vw] rounded-[3em] relative flex items-end px-10 pb-5 gap-2 overflow-hidden cursor-none group"
-                        data-scroll data-scroll-speed="2">
+                    <!-- Carousel Track with 3D Perspective -->
+                    <div class="carousel-track flex gap-6" style="perspective: 1000px; transform-style: preserve-3d;">
 
-                        <img src="./src/assets/images/petpaal.png" alt="PetPaal Adoption"
-                            class="absolute inset-0 h-full w-full object-cover object-top hover:grayscale duration-1000">
+                        <!-- ITEM 1: BUYNEST -->
+                        <div class="carousel-item relative shrink-0 w-[85vw] md:w-[700px] flex flex-col justify-between rounded-[2.5em] overflow-hidden border border-white/15 bg-white/5 backdrop-blur-md shadow-2xl transition-all duration-500 origin-center"
+                            style="transform-style: preserve-3d;">
+                            <!-- Header Title -->
+                            <div class="relative z-10 p-6 md:p-8 flex items-baseline gap-2 mb-[-2vw]">
+                                <span
+                                    class="font-serif-italic text-primary text-[10vw] md:text-[6vw] leading-none select-none drop-shadow-[0_0_15px_rgba(217,38,124,0.6)]">B</span>
+                                <h3
+                                    class="font-bebas text-white text-[12vw] md:text-[7vw] leading-none tracking-tight uppercase select-none">
+                                    UYNEST</h3>
+                            </div>
 
-                        <div class="flex items-center gap-3 z-10 w-full">
-                            <a href="https://petpaal.onrender.com/" target="_blank"
-                                class="rounded-[12vh] bg-primary text-white px-10 py-4 transition-colors hover:bg-[#F5F5F5] hover:text-primary whitespace-nowrap">
-                                Pet Adoption Platform
-                            </a>
-
-                            <a href="https://github.com/Sweta-82/pet-paal" target="_blank"
-                                class="bg-[#F5F5F5] text-primary flex items-center justify-center rounded-full w-14 h-14 shadow-lg cursor-pointer transition-transform hover:scale-110 group">
-                                <i class="ph-thin ph-arrow-up-right text-xl group-hover:rotate-45 duration-300"></i>
-                            </a>
+                            <!-- Image Card -->
+                            <div class="relative w-full h-[45vh] md:h-[55vh] overflow-hidden">
+                                <img src="./src/assets/images/buynest.png" alt="BuyNest E-Commerce"
+                                    class="absolute inset-0 w-full h-full object-cover object-top" />
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent p-6 md:p-8 flex flex-col justify-between">
+                                    <div class="flex justify-end">
+                                        <span
+                                            class="px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-white text-xs font-mono tracking-wider border border-white/20">
+                                            2025 • FULL STACK E-COMMERCE
+                                        </span>
+                                    </div>
+                                    <div class="flex items-end justify-between gap-4">
+                                        <div>
+                                            <h4 class="text-xl md:text-3xl font-bold text-white mb-2">Full-Stack
+                                                E-Commerce Platform</h4>
+                                            <p class="text-secondary/80 text-xs md:text-sm line-clamp-2">Built with MERN
+                                                Stack, user authentication, product filtering, dynamic cart management,
+                                                and online checkout.</p>
+                                        </div>
+                                        <a href="https://buynest-8pji.onrender.com/" target="_blank"
+                                            class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white text-black flex items-center justify-center relative shadow-2xl shrink-0 group/badge hover:scale-110 transition-transform">
+                                            <svg class="absolute inset-0 w-full h-full animate-[spin_10s_linear_infinite]"
+                                                viewBox="0 0 100 100">
+                                                <path id="c1"
+                                                    d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0"
+                                                    fill="none" />
+                                                <text
+                                                    class="text-[9px] uppercase font-mono tracking-widest fill-black font-bold">
+                                                    <textPath href="#c1">VISIT SITE • VISIT SITE • </textPath>
+                                                </text>
+                                            </svg>
+                                            <i class="ph-thin ph-arrow-up-right text-xl md:text-2xl text-black"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
+                        <!-- ITEM 2: SAASIFY -->
+                        <div class="carousel-item relative shrink-0 w-[85vw] md:w-[700px] flex flex-col justify-between rounded-[2.5em] overflow-hidden border border-white/15 bg-white/5 backdrop-blur-md shadow-2xl transition-all duration-500 origin-center"
+                            style="transform-style: preserve-3d;">
+                            <div class="relative z-10 p-6 md:p-8 flex items-baseline gap-2 mb-[-2vw]">
+                                <span
+                                    class="font-serif-italic text-primary text-[10vw] md:text-[6vw] leading-none select-none drop-shadow-[0_0_15px_rgba(217,38,124,0.6)]">S</span>
+                                <h3
+                                    class="font-bebas text-white text-[12vw] md:text-[7vw] leading-none tracking-tight uppercase select-none">
+                                    AASIFY</h3>
+                            </div>
+                            <div class="relative w-full h-[45vh] md:h-[55vh] overflow-hidden">
+                                <img src="./src/assets/images/saasify.png" alt="SaaSify"
+                                    class="absolute inset-0 w-full h-full object-cover object-top" />
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent p-6 md:p-8 flex flex-col justify-between">
+                                    <div class="flex justify-end">
+                                        <span
+                                            class="px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-white text-xs font-mono tracking-wider border border-white/20">
+                                            2025 • MERN + REDIS + BULLMQ
+                                        </span>
+                                    </div>
+                                    <div class="flex items-end justify-between gap-4">
+                                        <div>
+                                            <h4 class="text-xl md:text-3xl font-bold text-white mb-2">High-Performance
+                                                SaaS Queue Architecture</h4>
+                                            <p class="text-secondary/80 text-xs md:text-sm line-clamp-2">Scalable
+                                                full-stack application leveraging Redis caching and BullMQ async message
+                                                queues for high-throughput tasks.</p>
+                                        </div>
+                                        <a href="https://github.com/Sweta-82/SaaSify" target="_blank"
+                                            class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white text-black flex items-center justify-center relative shadow-2xl shrink-0 group/badge hover:scale-110 transition-transform">
+                                            <svg class="absolute inset-0 w-full h-full animate-[spin_10s_linear_infinite]"
+                                                viewBox="0 0 100 100">
+                                                <path id="c2"
+                                                    d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0"
+                                                    fill="none" />
+                                                <text
+                                                    class="text-[9px] uppercase font-mono tracking-widest fill-black font-bold">
+                                                    <textPath href="#c2">GITHUB • REPO • </textPath>
+                                                </text>
+                                            </svg>
+                                            <i class="ph-thin ph-arrow-up-right text-xl md:text-2xl text-black"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ITEM 3: VIDA 3D -->
+                        <div class="carousel-item relative shrink-0 w-[85vw] md:w-[700px] flex flex-col justify-between rounded-[2.5em] overflow-hidden border border-white/15 bg-white/5 backdrop-blur-md shadow-2xl transition-all duration-500 origin-center"
+                            style="transform-style: preserve-3d;">
+                            <div class="relative z-10 p-6 md:p-8 flex items-baseline gap-2 mb-[-2vw]">
+                                <span
+                                    class="font-serif-italic text-primary text-[10vw] md:text-[6vw] leading-none select-none drop-shadow-[0_0_15px_rgba(217,38,124,0.6)]">V</span>
+                                <h3
+                                    class="font-bebas text-white text-[12vw] md:text-[7vw] leading-none tracking-tight uppercase select-none">
+                                    IDA 3D</h3>
+                            </div>
+                            <div class="relative w-full h-[45vh] md:h-[55vh] overflow-hidden">
+                                <img src="./src/assets/images/vida.png" alt="Vida 3D"
+                                    class="absolute inset-0 w-full h-full object-cover object-top" />
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent p-6 md:p-8 flex flex-col justify-between">
+                                    <div class="flex justify-end">
+                                        <span
+                                            class="px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-white text-xs font-mono tracking-wider border border-white/20">
+                                            2025 • THREE.JS &amp; GSAP
+                                        </span>
+                                    </div>
+                                    <div class="flex items-end justify-between gap-4">
+                                        <div>
+                                            <h4 class="text-xl md:text-3xl font-bold text-white mb-2">3D WebGL
+                                                Interactive Portfolio</h4>
+                                            <p class="text-secondary/80 text-xs md:text-sm line-clamp-2">Immersive 3D
+                                                graphics rendering with custom WebGL shaders, Three.js cameras, and
+                                                interactive particle animations.</p>
+                                        </div>
+                                        <a href="https://vida-inky.vercel.app/" target="_blank"
+                                            class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white text-black flex items-center justify-center relative shadow-2xl shrink-0 group/badge hover:scale-110 transition-transform">
+                                            <svg class="absolute inset-0 w-full h-full animate-[spin_10s_linear_infinite]"
+                                                viewBox="0 0 100 100">
+                                                <path id="c3"
+                                                    d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0"
+                                                    fill="none" />
+                                                <text
+                                                    class="text-[9px] uppercase font-mono tracking-widest fill-black font-bold">
+                                                    <textPath href="#c3">VISIT SITE • VISIT SITE • </textPath>
+                                                </text>
+                                            </svg>
+                                            <i class="ph-thin ph-arrow-up-right text-xl md:text-2xl text-black"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ITEM 4: PETPAAL -->
+                        <div class="carousel-item relative shrink-0 w-[85vw] md:w-[700px] flex flex-col justify-between rounded-[2.5em] overflow-hidden border border-white/15 bg-white/5 backdrop-blur-md shadow-2xl transition-all duration-500 origin-center"
+                            style="transform-style: preserve-3d;">
+                            <div class="relative z-10 p-6 md:p-8 flex items-baseline gap-2 mb-[-2vw]">
+                                <span
+                                    class="font-serif-italic text-primary text-[10vw] md:text-[6vw] leading-none select-none drop-shadow-[0_0_15px_rgba(217,38,124,0.6)]">P</span>
+                                <h3
+                                    class="font-bebas text-white text-[12vw] md:text-[7vw] leading-none tracking-tight uppercase select-none">
+                                    ETPAAL</h3>
+                            </div>
+                            <div class="relative w-full h-[45vh] md:h-[55vh] overflow-hidden">
+                                <img src="./src/assets/images/petpaal.png" alt="PetPaal Adoption"
+                                    class="absolute inset-0 w-full h-full object-cover object-top" />
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent p-6 md:p-8 flex flex-col justify-between">
+                                    <div class="flex justify-end">
+                                        <span
+                                            class="px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-white text-xs font-mono tracking-wider border border-white/20">
+                                            2025 • SOCKET.IO REALTIME
+                                        </span>
+                                    </div>
+                                    <div class="flex items-end justify-between gap-4">
+                                        <div>
+                                            <h4 class="text-xl md:text-3xl font-bold text-white mb-2">Real-Time Pet
+                                                Adoption Platform</h4>
+                                            <p class="text-secondary/80 text-xs md:text-sm line-clamp-2">Full stack pet
+                                                adoption portal with Socket.io real-time chat between pet adopters and
+                                                foster parents.</p>
+                                        </div>
+                                        <a href="https://petpaal.onrender.com/" target="_blank"
+                                            class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white text-black flex items-center justify-center relative shadow-2xl shrink-0 group/badge hover:scale-110 transition-transform">
+                                            <svg class="absolute inset-0 w-full h-full animate-[spin_10s_linear_infinite]"
+                                                viewBox="0 0 100 100">
+                                                <path id="c4"
+                                                    d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0"
+                                                    fill="none" />
+                                                <text
+                                                    class="text-[9px] uppercase font-mono tracking-widest fill-black font-bold">
+                                                    <textPath href="#c4">VISIT SITE • VISIT SITE • </textPath>
+                                                </text>
+                                            </svg>
+                                            <i class="ph-thin ph-arrow-up-right text-xl md:text-2xl text-black"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ITEM 5: K72 AGENCY -->
+                        <div class="carousel-item relative shrink-0 w-[85vw] md:w-[700px] flex flex-col justify-between rounded-[2.5em] overflow-hidden border border-white/15 bg-white/5 backdrop-blur-md shadow-2xl transition-all duration-500 origin-center"
+                            style="transform-style: preserve-3d;">
+                            <div class="relative z-10 p-6 md:p-8 flex items-baseline gap-2 mb-[-2vw]">
+                                <span
+                                    class="font-serif-italic text-primary text-[10vw] md:text-[6vw] leading-none select-none drop-shadow-[0_0_15px_rgba(217,38,124,0.6)]">K</span>
+                                <h3
+                                    class="font-bebas text-white text-[12vw] md:text-[7vw] leading-none tracking-tight uppercase select-none">
+                                    72 AGENCY</h3>
+                            </div>
+                            <div class="relative w-full h-[45vh] md:h-[55vh] overflow-hidden">
+                                <img src="./src/assets/images/k2.png" alt="K72 Agency Website"
+                                    class="absolute inset-0 w-full h-full object-cover object-top" />
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent p-6 md:p-8 flex flex-col justify-between">
+                                    <div class="flex justify-end">
+                                        <span
+                                            class="px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-white text-xs font-mono tracking-wider border border-white/20">
+                                            2025 • AGENCY SHOWCASE
+                                        </span>
+                                    </div>
+                                    <div class="flex items-end justify-between gap-4">
+                                        <div>
+                                            <h4 class="text-xl md:text-3xl font-bold text-white mb-2">K72 Creative
+                                                Agency Digital Platform</h4>
+                                            <p class="text-secondary/80 text-xs md:text-sm line-clamp-2">High-impact
+                                                brand experience website with smooth GSAP animations and responsive grid
+                                                layouts.</p>
+                                        </div>
+                                        <a href="https://k72-five-sage.vercel.app/" target="_blank"
+                                            class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white text-black flex items-center justify-center relative shadow-2xl shrink-0 group/badge hover:scale-110 transition-transform">
+                                            <svg class="absolute inset-0 w-full h-full animate-[spin_10s_linear_infinite]"
+                                                viewBox="0 0 100 100">
+                                                <path id="c5"
+                                                    d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0"
+                                                    fill="none" />
+                                                <text
+                                                    class="text-[9px] uppercase font-mono tracking-widest fill-black font-bold">
+                                                    <textPath href="#c5">VISIT SITE • VISIT SITE • </textPath>
+                                                </text>
+                                            </svg>
+                                            <i class="ph-thin ph-arrow-up-right text-xl md:text-2xl text-black"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
+
+                    <!-- Carousel Pagination Dots -->
+                    <div class="carousel-dots flex justify-center gap-3 mt-10"></div>
                 </div>
 
-                <div class="w-fit ml-auto flex flex-col px-40 mt-20 uppercase text-xl text-secondary" data-scroll
-                    data-scroll-speed="1">
+                <div class="w-full md:w-fit ml-auto flex flex-col px-5 md:px-40 mt-16 md:mt-24 uppercase text-lg md:text-xl text-secondary"
+                    data-scroll data-scroll-speed="1">
                     <span class="text-sm text-muted">ARCHIVE</span>
                     <a href="https://buynest-8pji.onrender.com/" target="_blank"
                         class="group hover:text-primary duration-500">
@@ -396,15 +683,10 @@
                         <i
                             class="ph-thin ph-arrow-up-right opacity-0 group-hover:opacity-100 duration-500 text-primary"></i>
                     </a>
-                    <a href="" class="group hover:text-primary duration-500">
-                        <span>2025 Portfolio Legacy</span>
-                        <i
-                            class="ph-thin ph-arrow-up-right opacity-0 group-hover:opacity-100 duration-500 text-primary"></i>
-                    </a>
                 </div>
-                <div class="pb-40 text-center">
+                <div class="pb-20 md:pb-40 text-center mt-12">
                     <a href="./src/assets/images/updated cv.pdf" download
-                        class="mt-30 rounded-4xl text-center border-muted border-1 hover:bg-white/10 duration-500 cursor-pointer inline-block px-10 py-4 text-secondary">
+                        class="rounded-4xl text-center border-muted border-1 hover:bg-white/10 duration-500 cursor-pointer inline-block px-8 md:px-10 py-3 md:py-4 text-secondary text-base md:text-lg">
                         Download Resume
                     </a>
                 </div>
@@ -412,113 +694,152 @@
             </div>
         </div>
 
-        <!-- Education & Experience Timeline Timeline Section -->
-        <div class="mt-40 px-15 py-32 bg-main" data-scroll>
-            <div class="grid md:grid-cols-2 gap-24">
-                <!-- Education Column -->
-                <div id="education" class="flex flex-col gap-12 relative text-secondary">
-                    <h2 class="text-2xl text-primary font-bold tracking-widest uppercase mb-4">Education</h2>
+        <!-- Education & Certifications ScrollStack Section -->
+        <div id="education" class="mt-40 px-5 md:px-15 py-24 bg-main relative" data-scroll>
+            <div class="mb-16 text-center">
+                <span class="text-xs uppercase tracking-widest text-primary font-semibold">Timeline & Credentials</span>
+                <h2 class="text-5xl md:text-7xl font-light text-secondary mt-3">Education & Certifications</h2>
+                <p class="text-secondary/70 max-w-xl mx-auto mt-4 text-lg">Scroll down to explore my academic path,
+                    certifications, and technical training.</p>
+            </div>
 
-                    <!-- Vertical Line -->
-                    <div class="timeline-line absolute left-[6px] top-[60px] bottom-0 w-px bg-white/10 origin-top">
+            <div class="scroll-stack-container max-w-4xl mx-auto flex flex-col gap-8 relative">
+                <!-- ================= EDUCATION CARDS FIRST ================= -->
+                <!-- Card 1: LPU B.Tech -->
+                <div
+                    class="scroll-stack-card p-8 md:p-12 border border-white/10 bg-white/5 backdrop-blur-md rounded-[32px] shadow-2xl">
+                    <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+                        <span
+                            class="px-4 py-1.5 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/30 uppercase tracking-wider">Aug
+                            2023 - Present | Education</span>
+                        <span class="text-sm font-semibold text-primary">CGPA: 7.09</span>
                     </div>
+                    <h3 class="text-2xl md:text-4xl font-bold text-white mb-2">B.Tech in Computer Science & Engineering
+                    </h3>
+                    <p class="text-primary text-lg font-medium mb-4">Lovely Professional University, Phagwara, Punjab
+                    </p>
+                    <p class="text-secondary/80 text-base leading-relaxed">Specializing in Full Stack Development, Cloud
+                        AI workloads, and scalable system design. Solved 150+ DSA problems and built production-ready
+                        full stack web applications.</p>
+                </div>
 
-                    <div class="flex flex-col gap-10 pl-8 relative">
-                        <!-- LPU -->
-                        <div class="timeline-card relative group">
-                            <div
-                                class="timeline-dot absolute -left-[37px] top-6 w-3 h-3 rounded-full bg-primary shadow-[0_0_15px_rgba(255,59,0,0.3)]">
-                            </div>
-                            <div
-                                class="bg-white/5 p-8 rounded-xl border border-white/5 hover:bg-white/10 hover:-translate-y-2 transition-all duration-500">
-                                <p class="text-primary font-semibold text-sm mb-2">2023 - Present</p>
-                                <h3 class="text-xl text-white font-bold">B.Tech in Computer Science</h3>
-                                <p class="text-secondary/70 mt-2 text-sm leading-relaxed">Lovely Professional
-                                    University. Specializing in Full Stack Development and scalable system design.</p>
-                            </div>
-                        </div>
+                <!-- Card 2: 12th Grade -->
+                <div
+                    class="scroll-stack-card p-8 md:p-12 border border-white/10 bg-white/5 backdrop-blur-md rounded-[32px] shadow-2xl">
+                    <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+                        <span
+                            class="px-4 py-1.5 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/30 uppercase tracking-wider">Apr
+                            2021 - Apr 2023 | Education</span>
+                        <span class="text-sm font-semibold text-secondary/60">Patna, Bihar</span>
+                    </div>
+                    <h3 class="text-2xl md:text-4xl font-bold text-white mb-2">Intermediate (12th Grade Science)</h3>
+                    <p class="text-primary text-lg font-medium mb-4">Scholars Abode School</p>
+                    <p class="text-secondary/80 text-base leading-relaxed">Completed 12th Grade Higher Secondary
+                        Education in Science stream (Mathematics, Physics, Chemistry) with focus on problem solving and
+                        analytical fundamentals.</p>
+                </div>
 
-                        <!-- 12th -->
-                        <div class="timeline-card relative group">
-                            <div
-                                class="timeline-dot absolute -left-[37px] top-6 w-3 h-3 rounded-full bg-primary shadow-[0_0_15px_rgba(255,59,0,0.3)]">
-                            </div>
-                            <div
-                                class="bg-white/5 p-8 rounded-xl border border-white/5 hover:bg-white/10 hover:-translate-y-2 transition-all duration-500">
-                                <p class="text-primary font-semibold text-sm mb-2">2021 - 2023</p>
-                                <h3 class="text-xl text-white font-bold">Intermediate (12th Grade)</h3>
-                                <p class="text-secondary/70 mt-2 text-sm leading-relaxed">Scholars Abode School, Patna.
-                                    Science stream with a focus on Mathematics and Physics.</p>
-                            </div>
-                        </div>
+                <!-- Card 3: 10th Grade -->
+                <div
+                    class="scroll-stack-card p-8 md:p-12 border border-white/10 bg-white/5 backdrop-blur-md rounded-[32px] shadow-2xl">
+                    <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+                        <span
+                            class="px-4 py-1.5 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/30 uppercase tracking-wider">Apr
+                            2020 - Apr 2021 | Education</span>
+                        <span class="text-sm font-semibold text-secondary/60">Patna, Bihar</span>
+                    </div>
+                    <h3 class="text-2xl md:text-4xl font-bold text-white mb-2">Matriculation (10th Grade)</h3>
+                    <p class="text-primary text-lg font-medium mb-4">Sharon's Public School</p>
+                    <p class="text-secondary/80 text-base leading-relaxed">Foundational secondary education with
+                        distinction in computer literacy and academic excellence.</p>
+                </div>
 
-                        <!-- 10th -->
-                        <div class="timeline-card relative group">
-                            <div
-                                class="timeline-dot absolute -left-[37px] top-6 w-3 h-3 rounded-full bg-primary shadow-[0_0_15px_rgba(255,59,0,0.3)]">
-                            </div>
-                            <div
-                                class="bg-white/5 p-8 rounded-xl border border-white/5 hover:bg-white/10 hover:-translate-y-2 transition-all duration-500">
-                                <p class="text-primary font-semibold text-sm mb-2">Matriculation</p>
-                                <h3 class="text-xl text-white font-bold">High School Degree</h3>
-                                <p class="text-secondary/70 mt-2 text-sm leading-relaxed">Sharon's Public School, Patna.
-                                    Foundational education with emphasis on computer literacy.</p>
-                            </div>
+                <!-- ================= CERTIFICATIONS & TRAINING SECTION DIVIDER ================= -->
+                <div
+                    class="scroll-stack-card p-6 md:p-10 border border-primary/40 bg-gradient-to-r from-primary/20 via-primary/10 to-transparent backdrop-blur-xl rounded-[32px] shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 my-4">
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-14 h-14 rounded-full bg-primary/20 border border-primary/50 flex items-center justify-center text-primary text-3xl shadow-[0_0_20px_rgba(217,38,124,0.3)]">
+                            <i class="ph-thin ph-certificate"></i>
                         </div>
+                        <div>
+                            <span class="text-xs uppercase tracking-widest text-primary font-bold">Specialized
+                                Credentials</span>
+                            <h3 class="text-3xl md:text-4xl font-light text-white tracking-wide">Certifications &
+                                Training</h3>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-center gap-2 text-primary font-semibold text-xs tracking-widest uppercase border border-primary/40 px-6 py-2.5 rounded-full bg-primary/10 shadow-lg">
+                        <span>4 Key Certifications</span>
+                        <i class="ph-thin ph-arrow-down text-base"></i>
                     </div>
                 </div>
 
-                <!-- Experience/Certifications Column -->
-                <div id="certifications" class="flex flex-col gap-12 relative text-secondary">
-                    <h2 class="text-2xl text-primary font-bold tracking-widest uppercase mb-4">Experience</h2>
-
-                    <!-- Vertical Line -->
-                    <div class="timeline-line absolute left-[6px] top-[60px] bottom-0 w-px bg-white/10 origin-top">
+                <!-- Card 4: Oracle AI -->
+                <div
+                    class="scroll-stack-card p-8 md:p-12 border border-white/10 bg-white/5 backdrop-blur-md rounded-[32px] shadow-2xl">
+                    <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+                        <span
+                            class="px-4 py-1.5 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/30 uppercase tracking-wider">May
+                            2026 | Certification</span>
+                        <span class="text-sm font-semibold text-secondary/60">Oracle</span>
                     </div>
+                    <h3 class="text-2xl md:text-4xl font-bold text-white mb-2">OCI 2026 Certified AI Foundations
+                        Associate</h3>
+                    <p class="text-primary text-lg font-medium mb-4">Oracle Cloud Infrastructure</p>
+                    <p class="text-secondary/80 text-base leading-relaxed">Certified in foundational artificial
+                        intelligence concepts, machine learning workloads, cloud AI infrastructure, and computer vision
+                        deployment.</p>
+                </div>
 
-                    <div class="flex flex-col gap-10 pl-8 relative">
-                        <!-- Postman -->
-                        <div class="timeline-card relative group">
-                            <div
-                                class="timeline-dot absolute -left-[37px] top-6 w-3 h-3 rounded-full bg-primary shadow-[0_0_15px_rgba(255,59,0,0.3)]">
-                            </div>
-                            <div
-                                class="bg-white/5 p-8 rounded-xl border border-white/5 hover:bg-white/10 hover:-translate-y-2 transition-all duration-500">
-                                <p class="text-primary font-semibold text-sm mb-2">Certification</p>
-                                <h3 class="text-xl text-white font-bold">API Fundamentals Student Expert</h3>
-                                <p class="text-secondary/70 mt-2 text-sm leading-relaxed">Postman. Certified in API
-                                    testing, documentation, and collaborative development tools.</p>
-                            </div>
-                        </div>
-
-                        <!-- Infosys -->
-                        <div class="timeline-card relative group">
-                            <div
-                                class="timeline-dot absolute -left-[37px] top-6 w-3 h-3 rounded-full bg-primary shadow-[0_0_15px_rgba(255,59,0,0.3)]">
-                            </div>
-                            <div
-                                class="bg-white/5 p-8 rounded-xl border border-white/5 hover:bg-white/10 hover:-translate-y-2 transition-all duration-500">
-                                <p class="text-primary font-semibold text-sm mb-2">Certification</p>
-                                <h3 class="text-xl text-white font-bold">ChatGPT Prompt Engineering</h3>
-                                <p class="text-secondary/70 mt-2 text-sm leading-relaxed">Infosys Springboard. Expert in
-                                    crafting effective prompts for generative AI models.</p>
-                            </div>
-                        </div>
-
-                        <!-- Scrimba -->
-                        <div class="timeline-card relative group">
-                            <div
-                                class="timeline-dot absolute -left-[37px] top-6 w-3 h-3 rounded-full bg-primary shadow-[0_0_15px_rgba(255,59,0,0.3)]">
-                            </div>
-                            <div
-                                class="bg-white/5 p-8 rounded-xl border border-white/5 hover:bg-white/10 hover:-translate-y-2 transition-all duration-500">
-                                <p class="text-primary font-semibold text-sm mb-2">Career Path</p>
-                                <h3 class="text-xl text-white font-bold">Frontend Developer</h3>
-                                <p class="text-secondary/70 mt-2 text-sm leading-relaxed">Scrimba Professional Training.
-                                    Comprehensive skill-building in modern React and CSS architectures.</p>
-                            </div>
-                        </div>
+                <!-- Card 5: Postman -->
+                <div
+                    class="scroll-stack-card p-8 md:p-12 border border-white/10 bg-white/5 backdrop-blur-md rounded-[32px] shadow-2xl">
+                    <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+                        <span
+                            class="px-4 py-1.5 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/30 uppercase tracking-wider">Sep
+                            2025 | Certification</span>
+                        <span class="text-sm font-semibold text-secondary/60">Postman</span>
                     </div>
+                    <h3 class="text-2xl md:text-4xl font-bold text-white mb-2">API Fundamentals Student Expert</h3>
+                    <p class="text-primary text-lg font-medium mb-4">Postman Student Expert Program</p>
+                    <p class="text-secondary/80 text-base leading-relaxed">Certified in API architecture, automated
+                        RESTful endpoint testing, environment variables, documentation, and collaborative workspace
+                        management.</p>
+                </div>
+
+                <!-- Card 6: Infosys Prompt Eng -->
+                <div
+                    class="scroll-stack-card p-8 md:p-12 border border-white/10 bg-white/5 backdrop-blur-md rounded-[32px] shadow-2xl">
+                    <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+                        <span
+                            class="px-4 py-1.5 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/30 uppercase tracking-wider">Aug
+                            2025 | Specialization</span>
+                        <span class="text-sm font-semibold text-secondary/60">Infosys</span>
+                    </div>
+                    <h3 class="text-2xl md:text-4xl font-bold text-white mb-2">ChatGPT-4 Prompt Engineering & Generative
+                        AI</h3>
+                    <p class="text-primary text-lg font-medium mb-4">Infosys Springboard</p>
+                    <p class="text-secondary/80 text-base leading-relaxed">Specialized training in prompt design
+                        techniques, Generative AI integration, LLM API orchestration, and AI-assisted software
+                        development workflows.</p>
+                </div>
+
+                <!-- Card 7: Cipher School DSA -->
+                <div
+                    class="scroll-stack-card p-8 md:p-12 border border-white/10 bg-white/5 backdrop-blur-md rounded-[32px] shadow-2xl">
+                    <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+                        <span
+                            class="px-4 py-1.5 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/30 uppercase tracking-wider">Jun
+                            2025 - Jul 2025 | Professional Training</span>
+                        <span class="text-sm font-semibold text-secondary/60">Cipher School</span>
+                    </div>
+                    <h3 class="text-2xl md:text-4xl font-bold text-white mb-2">Data Structures & Algorithms in C++</h3>
+                    <p class="text-primary text-lg font-medium mb-4">Cipher School Intensive Program</p>
+                    <p class="text-secondary/80 text-base leading-relaxed">Solved 80+ structured algorithmic problems
+                        across trees, graphs, dynamic programming, and recursion; improved problem-solving efficiency
+                        and execution speed by 30-40%.</p>
                 </div>
             </div>
         </div>
@@ -546,59 +867,70 @@
                         websites as a<br> medium of expression.</p>
                 </div>
                 <!-- ul -->
-                <div class="py-2 text-secondary w-[50vw]" data-scroll data-scroll-speed="3">
-                    <ul>
-                        <div class=" flex items-center justify-between p-5">
-                            <li class="text-[3vh]">150+ DSA Problems Solved</li>
-                            <i class="ph-thin ph-arrow-right bg-secondary text-main text-4xl rounded-full"></i>
-                        </div>
-                        <hr class="border-secondary/20">
-                        <div class=" flex items-center p-5 justify-between">
-                            <li class="text-[3vh]">100+ Days LeetCode Streak</li>
-                            <i class="ph-thin ph-arrow-right bg-secondary text-main text-4xl rounded-full"></i>
-                        </div>
-                        <hr class="border-secondary/20">
-                        <div class=" flex items-center p-5 justify-between">
-                            <li class="text-[3vh] ">Full Stack Training Completion</li>
-                            <i class="ph-thin ph-arrow-right bg-secondary text-main text-4xl rounded-full"></i>
-                        </div>
-                        <hr class="border-secondary/20">
-                        <div class=" flex items-center p-5 justify-between">
-                            <li class="text-[3vh] ">API & Backend Development Projects</li>
-                            <i class="ph-thin ph-arrow-right bg-secondary text-main text-4xl rounded-full"></i>
-                        </div>
-                        <hr class="border-secondary/20">
+                <div class="py-2 text-secondary w-[50vw]" data-scroll>
+                    <ul class="line-sidebar">
+                        <li class="border-b border-secondary/20">
+                            <span class="text-[3vh] font-medium">150+ DSA Problems Solved</span>
+                            <i class="ph-thin ph-arrow-right bg-secondary text-main text-3xl rounded-full p-1"></i>
+                        </li>
+                        <li class="border-b border-secondary/20">
+                            <span class="text-[3vh] font-medium">100+ Days LeetCode Streak</span>
+                            <i class="ph-thin ph-arrow-right bg-secondary text-main text-3xl rounded-full p-1"></i>
+                        </li>
+                        <li class="border-b border-secondary/20">
+                            <span class="text-[3vh] font-medium">OCI AI Foundations Associate Certified
+                                (Oracle)</span>
+                            <i class="ph-thin ph-arrow-right bg-secondary text-main text-3xl rounded-full p-1"></i>
+                        </li>
+                        <li class="border-b border-secondary/20">
+                            <span class="text-[3vh] font-medium">Postman API Fundamentals Student Expert</span>
+                            <i class="ph-thin ph-arrow-right bg-secondary text-main text-3xl rounded-full p-1"></i>
+                        </li>
+                        <li class="border-b border-secondary/20">
+                            <span class="text-[3vh] font-medium">ChatGPT-4 Prompt Engineering Certified
+                                (Infosys)</span>
+                            <i class="ph-thin ph-arrow-right bg-secondary text-main text-3xl rounded-full p-1"></i>
+                        </li>
+                        <li class="border-b border-secondary/20">
+                            <span class="text-[3vh] font-medium">60+ RESTful APIs & Microservices
+                                Architecture</span>
+                            <i class="ph-thin ph-arrow-right bg-secondary text-main text-3xl rounded-full p-1"></i>
+                        </li>
+                        <li class="border-b border-secondary/20">
+                            <span class="text-[3vh] font-medium">Full Stack Training & Real-Time Apps</span>
+                            <i class="ph-thin ph-arrow-right bg-secondary text-main text-3xl rounded-full p-1"></i>
+                        </li>
                     </ul>
                 </div>
             </div>
 
         </div>
         <!-- footer -->
-        <div id="contact" class="bg-main w-full px-15" data-scroll>
-            <!-- <div class="bg-[#738180] w-full h-screen rounded-full"></div> -->
-            <div class="text-center pt-[6em]" data-scroll data-scroll-speed="1">
-                <p class="text-[5em] leading-none uppercase tracking-tighter">Let’s Build<br>Something Real</p>
+        <div id="contact" class="bg-main w-full px-0 pt-10 pb-0 mb-0 relative overflow-hidden">
+            <div class="text-center pt-[2em] px-5">
+                <p class="text-[5em] leading-none uppercase tracking-tighter text-secondary">Let’s
+                    Build<br>Something Real</p>
             </div>
-            <div class="w-full h-[550px] bg-primary rounded-t-full z-1" data-scroll data-scroll-speed="2">
-                <div class="flex justify-between mt-20">
+            <div class="w-full bg-primary min-h-[460px] mt-10 pb-8 flex flex-col justify-between items-center relative overflow-hidden"
+                style="border-radius: 50% 50% 0 0 / 100% 100% 0 0;">
+                <div class="flex justify-center gap-10 pt-28 z-10">
                     <a href="mailto:ydvsweta19@gmail.com"
-                        class="rounded-[3em] px-[12em] py-[2em] border-white border-1 font-bold hover:bg-white hover:text-black duration-1000 text-center">
+                        class="rounded-[3em] px-12 py-4 border-white border-1 font-bold hover:bg-white hover:text-black duration-500 text-center text-white">
                         Send Email
                     </a>
-                    <a href="https://github.com/Sweta-82"
-                        class="rounded-[3em] px-[12em] py-[2em] border-white border-1 font-bold hover:bg-white hover:text-black duration-1000 text-center">
+                    <a href="https://github.com/Sweta-82" target="_blank"
+                        class="rounded-[3em] px-12 py-4 border-white border-1 font-bold hover:bg-white hover:text-black duration-500 text-center text-white">
                         View Projects
                     </a>
                 </div>
 
-                <div class="flex justify-between mt-20 p-[4em] tracking-widest text-bold text-2xl" data-scroll
-                    data-scroll-speed="2">
-                    <a href="https://github.com/Sweta-82"
-                        class="border-t-1 border-white py-2 hover:bg-white hover:text-black duration-1000 px-4 ">GitHub</a>
-                    <a href="https://www.linkedin.com/in/swetakumari86/"
-                        class="border-t-1 border-white py-2 hover:bg-white hover:text-black duration-1000 px-4 ">LinkedIn</a>
+                <div class="flex justify-center gap-12 mt-12 tracking-widest font-bold text-2xl pb-6 z-10 text-white">
+                    <a href="https://github.com/Sweta-82" target="_blank"
+                        class="border-t-1 border-white py-2 hover:bg-white hover:text-black duration-500 px-4">GitHub</a>
+                    <a href="https://www.linkedin.com/in/swetakumari86/" target="_blank"
+                        class="border-t-1 border-white py-2 hover:bg-white hover:text-black duration-500 px-4">LinkedIn</a>
                     <a href="mailto:ydvsweta19@gmail.com"
-                        class="border-t-1 border-white py-2 hover:bg-white hover:text-black duration-1000 px-4 ">Email</a>
+                        class="border-t-1 border-white py-2 hover:bg-white hover:text-black duration-500 px-4">Email</a>
                 </div>
             </div>
         </div>
@@ -637,6 +969,14 @@
     <!-- </div> -->
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
     <script type="module" src="./src/sections/about.js"></script>
+    <script type="module" src="./src/utils/noise.js"></script>
+    <script type="module" src="./src/utils/crosshair.js"></script>
+    <script type="module" src="./src/utils/infiniteSpiral.js"></script>
+    <script type="module" src="./src/utils/lineSidebar.js"></script>
+    <script type="module" src="./src/utils/scrollStack.js"></script>
+    <script type="module" src="./src/utils/foldText.js"></script>
+    <script type="module" src="./src/utils/perspectiveCarousel.js"></script>
+    <script type="module" src="./src/utils/scrollBgColor.js"></script>
 </body>
 
 </html>

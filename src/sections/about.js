@@ -1,3 +1,6 @@
+import initScrollReveal from '../utils/scrollReveal.js';
+import initFoldText from '../utils/foldText.js';
+
 // locomation
 const scroll = new LocomotiveScroll({
   el: document.querySelector('[data-scroll-container]'),
@@ -21,6 +24,10 @@ ScrollTrigger.scrollerProxy("[data-scroll-container]", {
 });
 
 ScrollTrigger.addEventListener("refresh", () => scroll.update());
+
+// Initialize ScrollReveal for text elements
+initScrollReveal('.scroll-reveal');
+
 ScrollTrigger.refresh();
 
 const tl = gsap.timeline({ defaults: { ease: "expo.inOut" } });
@@ -72,7 +79,6 @@ tl.from('.section-lorem', {
   duration: 1
 }, "-=0.8");
 
-// 4. Finally, slide the orange curtain UP to fully reveal the page
 tl.to(".green-div", {
   yPercent: -100, // Move it off screen (matching 100vh height)
   duration: 0.8,
@@ -80,6 +86,11 @@ tl.to(".green-div", {
 }, "-=1");
 
 tl.set(".green-div", { display: "none" });
+
+// Trigger FoldText 3D unfolding animation after loader completes
+tl.call(() => {
+  initFoldText('[data-fold-text]');
+});
 
 
 const text = document.querySelector(".animatedText");
