@@ -11,7 +11,6 @@ export function initInfiniteSpiral(containerSelector = '#spiral-container', opts
     : containerSelector;
 
   if (!root) return;
-
   const defaultItems = [
     { src: './src/assets/images/buynest.png', alt: 'SkillSync GenAI Platform', href: 'https://github.com/Sweta-82', title: 'SkillSync GenAI Interview Prep' },
     { src: './src/assets/images/saasify.png', alt: 'SaaSify Hosting Platform', href: 'https://github.com/Sweta-82/SaaSify', title: 'SaaSify Hosting & Domain' },

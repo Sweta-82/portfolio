@@ -1,3 +1,5 @@
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import initScrollReveal from '../utils/scrollReveal.js';
 import initFoldText from '../utils/foldText.js';
 
