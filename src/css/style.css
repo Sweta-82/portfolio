@@ -20,7 +20,8 @@
 }
 
 /* Use main section fonts across other headings */
-h2, h3 {
+h2,
+h3 {
     font-family: 'Bebas Neue', sans-serif;
     font-weight: 800;
     letter-spacing: -0.02em;

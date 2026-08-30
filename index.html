@@ -220,9 +220,18 @@
 
                 <!-- Bottom Scroll Down Indicator -->
                 <div
-                    class="flex items-center justify-between border-t border-white/10 pt-6 text-xs uppercase font-mono text-muted">
-                    <span>SCROLL TO EXPLORE</span>
-                    <i class="ph-thin ph-arrow-down text-2xl text-primary animate-bounce"></i>
+                    class="flex items-center justify-between border-t border-white/10 pt-6 pb-4 mb-8 md:mb-14 -translate-y-4 md:-translate-y-8 text-xs uppercase font-mono text-muted relative">
+                    <div class="flex items-center gap-4">
+                        <img src="./src/assets/images/circle.gif" alt="Circle Gif Left"
+                            class="w-24 h-24 md:w-36 md:h-36 lg:w-44 lg:h-44 object-contain rounded-full">
+                        <span>SCROLL TO EXPLORE</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-xs uppercase font-mono text-muted">SCROLL</span>
+                        <i class="ph-thin ph-arrow-down text-2xl text-primary animate-bounce"></i>
+                        <img src="./src/assets/images/circle.gif" alt="Circle Gif Right"
+                            class="w-24 h-24 md:w-36 md:h-36 lg:w-44 lg:h-44 object-contain rounded-full">
+                    </div>
                 </div>
 
             </div>
@@ -841,13 +850,25 @@
             </div>
         </div>
 
-                <div class="mt-40 px-15 bg-main" data-scroll>
-            <div class="" data-scroll>
-                <span id="achievements" class="text-[18vh] pr-[278px] text-primary font-serif-italic font-extrabold">Achievements</span>
-                <span class="text-secondary">Achievements and milestones from my journey in development and problem
-                    solving.</span>
+        <div class="mt-40 px-5 md:px-15 bg-main relative" data-scroll>
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 relative"
+                data-scroll>
+                <div class="flex flex-wrap items-center gap-4 md:gap-8">
+                    <span id="achievements"
+                        class="text-[14vh] lg:text-[18vh] text-primary font-serif-italic font-extrabold leading-none">Achievements</span>
+                    <!-- glob.svg graphic right after Achievements -->
+                    <img src="./src/assets/images/glob.svg" alt="Globe Graphic"
+                        class="w-28 sm:w-36 md:w-52 lg:w-64 h-auto object-contain pointer-events-none drop-shadow-[0_0_30px_rgba(210,111,141,0.25)]">
+                </div>
+                <span class="text-secondary max-w-xs text-sm md:text-base pt-2">
+                    Achievements and milestones from my journey in development and problem solving.
+                </span>
             </div>
-            <i class="ph-thin ph-arrow-down-right text-[15vh] text-secondary"></i>
+
+            <div class="my-6 md:my-10">
+                <i class="ph-thin ph-arrow-down-right text-[10vh] lg:text-[15vh] text-secondary"></i>
+            </div>
+
             <div class="flex justify-center" data-scroll data-scroll-speed="1">
                 <!-- achievements list (full width, centered with max-width) -->
                 <div class="py-2 text-secondary w-full max-w-6xl" data-scroll>
